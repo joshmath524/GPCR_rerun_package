@@ -1,0 +1,434 @@
+===== START Fri Oct  2 16:56:34 EDT 2026 =====
+Traceback (most recent call last):
+  File "/Users/joshmath/Documents/GPCR_rerun_package/MLcodes/optuna_tuning/pan_gpcr_xgb_optuna.py", line 25, in <module>
+    import xgboost as xgb
+  File "/Users/joshmath/Documents/GPCR_rerun_package/.venv/lib/python3.13/site-packages/xgboost/__init__.py", line 6, in <module>
+    from . import tracker  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/joshmath/Documents/GPCR_rerun_package/.venv/lib/python3.13/site-packages/xgboost/tracker.py", line 9, in <module>
+    from .core import _LIB, _check_call, make_jcargs
+  File "/Users/joshmath/Documents/GPCR_rerun_package/.venv/lib/python3.13/site-packages/xgboost/core.py", line 269, in <module>
+    _LIB = _load_lib()
+  File "/Users/joshmath/Documents/GPCR_rerun_package/.venv/lib/python3.13/site-packages/xgboost/core.py", line 222, in _load_lib
+            raise XGBoostError(
+    ...<13 lines>...
+            )
+xgboost.core.XGBoostError: 
+XGBoost Library (libxgboost.dylib) could not be loaded.
+Likely causes:
+  * OpenMP runtime is not installed
+    - vcomp140.dll or libgomp-1.dll for Windows
+    - libomp.dylib for Mac OSX
+    - libgomp.so for Linux and other UNIX-like OSes
+    Mac OSX users: Run `brew install libomp` to install OpenMP runtime.
+
+  * You are running 32-bit Python on a 64-bit OS
+
+Error message(s): ["dlopen(/Users/joshmath/Documents/GPCR_rerun_package/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib, 0x0006): Library not loaded: @rpath/libomp.dylib\n  Referenced from: <BBC4A126-D15A-3802-AD26-108872BA781A> /Users/joshmath/Documents/GPCR_rerun_package/.venv/lib/python3.13/site-packages/xgboost/lib/libxgboost.dylib\n  Reason: tried: '/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file), '/System/Volumes/Preboot/Cryptexes/OS/opt/homebrew/opt/libomp/lib/libomp.dylib' (no such file)"]
+
+===== START Fri Oct  2 16:56:46 EDT 2026 =====
+[DATA] Aggregating receptor features...
+  [OK] 68 receptors with features
+[DATA] Loading ligand data (_NEW only, validated)...
+    [WARNING] 5-HT1A_antagonist_enriched_NEW.xlsx: repeat columns differ from the original for 4 descriptors (Asphericity, Eccentricity, InertialShapeFactor, RadiusOfGyration); keeping the original
+  [1/68] 5-HT1A: agonist=394, antagonist=158, inactive=1038
+  [2/68] 5-HT1B: agonist=69, antagonist=53, inactive=69
+  [3/68] 5-HT1D: agonist=39, antagonist=58, inactive=6
+  [4/68] 5-HT1F: agonist=14, antagonist=no _NEW file, inactive=13
+  [5/68] 5-HT2A: agonist=433, antagonist=359, inactive=688
+  [6/68] 5-HT2B: agonist=268, antagonist=138, inactive=570
+  [7/68] 5-HT2C: agonist=676, antagonist=104, inactive=861
+  [8/68] 5-HT4: agonist=17, antagonist=1, inactive=40
+  [9/68] 5-HT5A: agonist=2, antagonist=9, inactive=16
+  [10/68] 5-HT6: agonist=35, antagonist=279, inactive=216
+  [11/68] 5-HT7: agonist=27, antagonist=92, inactive=159
+  [12/68] A1: agonist=203, antagonist=241, inactive=364
+  [13/68] A2A: agonist=225, antagonist=616, inactive=385
+  [14/68] A2B: agonist=220, antagonist=551, inactive=1482
+  [15/68] A3: agonist=136, antagonist=336, inactive=380
+  [16/68] alpha1A: agonist=1, antagonist=39, inactive=13
+  [17/68] alpha1B: agonist=1, antagonist=33, inactive=30
+  [18/68] alpha2C: agonist=36, antagonist=no _NEW file, inactive=36
+  [19/68] beta1: agonist=242, antagonist=11, inactive=191
+  [20/68] beta2: agonist=84, antagonist=11, inactive=133
+  [21/68] beta3: agonist=91, antagonist=11, inactive=24
+  [22/68] BLT1: agonist=no _NEW file, antagonist=24, inactive=1
+  [23/68] CB1: agonist=856, antagonist=680, inactive=1430
+  [24/68] CB2: agonist=1790, antagonist=124, inactive=1991
+  [25/68] CysLT1: agonist=3, antagonist=180, inactive=28
+  [26/68] CysLT2: agonist=3, antagonist=68, inactive=38
+  [27/68] D1: agonist=108, antagonist=59, inactive=195
+  [28/68] D2: agonist=461, antagonist=416, inactive=1366
+  [29/68] D3: agonist=233, antagonist=414, inactive=403
+  [30/68] D4: agonist=125, antagonist=81, inactive=177
+  [31/68] D5: agonist=1, antagonist=5, inactive=22
+  [32/68] EP2: agonist=171, antagonist=81, inactive=276
+  [33/68] EP3: agonist=52, antagonist=230, inactive=264
+  [34/68] EP4: agonist=65, antagonist=282, inactive=338
+  [35/68] FFA1: agonist=240, antagonist=no _NEW file, inactive=399
+  [36/68] FFA2: agonist=64, antagonist=73, inactive=141
+  [37/68] FFA3: agonist=45, antagonist=no _NEW file, inactive=74
+  [38/68] FFA4: agonist=54, antagonist=1, inactive=97
+  [39/68] FP: agonist=17, antagonist=4, inactive=199
+  [40/68] GPBA: agonist=30, antagonist=no _NEW file, inactive=14
+  [41/68] GPR119: agonist=206, antagonist=no _NEW file, inactive=91
+  [42/68] GPR139: agonist=22, antagonist=no _NEW file, inactive=23
+  [43/68] GPR174: agonist=50, antagonist=7, inactive=50
+  [44/68] GPR35: agonist=56, antagonist=36, inactive=58
+  [45/68] H1: agonist=7, antagonist=251, inactive=172
+  [46/68] H2: agonist=84, antagonist=no _NEW file, inactive=225
+  [47/68] H3: agonist=229, antagonist=784, inactive=371
+  [48/68] H4: agonist=134, antagonist=131, inactive=389
+  [49/68] HCA2: agonist=33, antagonist=no _NEW file, inactive=47
+  [50/68] IP: agonist=133, antagonist=25, inactive=229
+  [51/68] LPA1: agonist=23, antagonist=126, inactive=180
+  [52/68] M1: agonist=275, antagonist=313, inactive=547
+  [53/68] M2: agonist=60, antagonist=208, inactive=266
+  [54/68] M3: agonist=32, antagonist=332, inactive=257
+  [55/68] M4: agonist=62, antagonist=86, inactive=235
+  [56/68] M5: agonist=44, antagonist=74, inactive=202
+  [57/68] MT1: agonist=130, antagonist=42, inactive=211
+  [58/68] MT2: agonist=124, antagonist=40, inactive=223
+  [59/68] P2Y1: agonist=359, antagonist=479, inactive=603
+  [60/68] P2Y12: agonist=1, antagonist=287, inactive=108
+  [61/68] PAF: agonist=no _NEW file, antagonist=20, inactive=3
+  [62/68] S1P1: agonist=1013, antagonist=36, inactive=408
+  [63/68] S1P2: agonist=34, antagonist=102, inactive=116
+  [64/68] S1P3: agonist=460, antagonist=19, inactive=512
+  [65/68] S1P5: agonist=95, antagonist=23, inactive=29
+  [66/68] succinate: agonist=23, antagonist=13, inactive=1
+  [67/68] TA1: agonist=18, antagonist=8, inactive=19
+  [68/68] TP: agonist=6, antagonist=150, inactive=200
+  [OK] 40,600 compounds from 193 _NEW files (agonist=11,244, antagonist=9,414, inactive=19,942)
+  [OK] Data manifest saved: /Users/joshmath/Documents/GPCR_rerun_package/MLcodes/pan_gpcr_results/optuna/pan_gpcr_xgb_optuna_data_manifest.csv
+  Canonicalizing SMILES for grouping...
+  [OK] All SMILES canonicalized
+  [OK] Feature matrix (40600, 1679): 1636 ligand, 31 receptor, 14 interaction columns
+  [OK] Cached feature matrix to MLcodes/pan_gpcr_results/optuna/cache/tuning_dataset.pkl
+  [INFO] Loading existing global split from /Users/joshmath/Documents/GPCR_rerun_package/MLcodes/pan_gpcr_results/splits/final_independent_ligand_80_20_canonical_smiles.json
+  [OK] Loaded split: Dev block (80%) 32,378, Independent test (20%) 8,222
+
+[SPLIT] Tuning on the 80% dev block only: 32,378 compounds (17,276 unique canonical SMILES), 1679 features
+[SPLIT] 20% test block held out and never used: 8,222 compounds
+        agonist: 8,974
+        antagonist: 7,495
+        inactive: 15,909
+
+[OPTUNA] xgb: 0 trials already completed, 500 to run (target 500). Study: MLcodes/pan_gpcr_results/optuna/xgb_optuna.db
+Trial 000 | F1=0.7153Â±0.0033 | trees=[610, 558, 586] | lr=0.031, depth=10, mcw=7.59, subsample=0.839, colsample=0.662, gamma=0.312, alpha=0.116, lambda=2.599
+Trial 001 | F1=0.7143Â±0.0035 | trees=[689, 518, 456] | lr=0.061, depth=8, mcw=1.19, subsample=0.988, colsample=0.933, gamma=0.425, alpha=0.364, lambda=0.550
+Trial 002 | F1=0.7140Â±0.0024 | trees=[1283, 1192, 1261] | lr=0.025, depth=7, mcw=4.89, subsample=0.716, colsample=0.845, gamma=0.279, alpha=0.584, lambda=1.099
+Trial 003 | F1=0.7153Â±0.0039 | trees=[440, 410, 446] | lr=0.039, depth=9, mcw=2.80, subsample=0.806, colsample=0.837, gamma=0.093, alpha=1.215, lambda=0.512
+Trial 004 | F1=0.7172Â±0.0040 | trees=[1700, 1636, 1615] | lr=0.012, depth=10, mcw=9.69, subsample=0.923, colsample=0.722, gamma=0.195, alpha=1.368, lambda=1.320
+Trial 005 | F1=0.7014Â±0.0025 | trees=[2619, 2999, 1976] | lr=0.014, depth=6, mcw=1.31, subsample=0.964, colsample=0.704, gamma=1.325, alpha=0.623, lambda=1.560
+Trial 006 | F1=0.6949Â±0.0022 | trees=[1602, 2999, 2329] | lr=0.051, depth=4, mcw=9.73, subsample=0.910, colsample=0.976, gamma=1.790, alpha=1.196, lambda=2.766
+Trial 007 | F1=0.7013Â±0.0031 | trees=[3000, 3000, 3000] | lr=0.013, depth=4, mcw=1.41, subsample=0.730, colsample=0.755, gamma=0.543, alpha=1.657, lambda=1.070
+Trial 008 | F1=0.6986Â±0.0029 | trees=[1803, 2106, 1686] | lr=0.023, depth=7, mcw=2.27, subsample=0.921, colsample=0.630, gamma=1.974, alpha=1.544, lambda=0.596
+Trial 009 | F1=0.7161Â±0.0038 | trees=[1945, 1711, 1795] | lr=0.010, depth=9, mcw=7.36, subsample=0.892, colsample=0.909, gamma=0.148, alpha=0.717, lambda=0.348
+Trial 010 | F1=0.7050Â±0.0023 | trees=[94, 92, 121] | lr=0.170, depth=10, mcw=9.73, subsample=0.607, colsample=0.759, gamma=0.913, alpha=1.920, lambda=2.030
+Trial 011 | F1=0.7153Â±0.0032 | trees=[2710, 2781, 3000] | lr=0.011, depth=9, mcw=7.47, subsample=0.873, colsample=0.882, gamma=0.819, alpha=0.857, lambda=0.055
+Trial 012 | F1=0.7161Â±0.0039 | trees=[1780, 1642, 1499] | lr=0.010, depth=10, mcw=7.81, subsample=0.910, colsample=0.781, gamma=0.017, alpha=0.964, lambda=1.842
+Trial 013 | F1=0.7177Â±0.0031 | trees=[1076, 995, 981] | lr=0.019, depth=10, mcw=8.58, subsample=0.998, colsample=0.757, gamma=0.006, alpha=1.129, lambda=1.985
+Trial 014 | F1=0.7027Â±0.0033 | trees=[1771, 1792, 1524] | lr=0.019, depth=6, mcw=8.75, subsample=1.000, colsample=0.700, gamma=0.607, alpha=1.356, lambda=2.294
+Trial 015 | F1=0.7072Â±0.0032 | trees=[761, 533, 1337] | lr=0.076, depth=8, mcw=5.89, subsample=0.949, colsample=0.724, gamma=1.249, alpha=1.989, lambda=1.296
+Trial 016 | F1=0.7125Â±0.0033 | trees=[3000, 3000, 2996] | lr=0.016, depth=5, mcw=5.99, subsample=0.846, colsample=0.604, gamma=0.612, alpha=1.537, lambda=1.672
+Trial 017 | F1=0.7064Â±0.0034 | trees=[585, 533, 400] | lr=0.101, depth=8, mcw=8.86, subsample=0.955, colsample=0.816, gamma=1.244, alpha=1.196, lambda=2.265
+Trial 018 | F1=0.7021Â±0.0025 | trees=[3000, 2998, 2986] | lr=0.037, depth=3, mcw=4.88, subsample=0.758, colsample=0.667, gamma=0.744, alpha=1.738, lambda=1.058
+Trial 019 | F1=0.7139Â±0.0036 | trees=[1113, 907, 814] | lr=0.020, depth=10, mcw=8.72, subsample=0.617, colsample=0.741, gamma=0.292, alpha=1.306, lambda=2.056
+Trial 020 | F1=0.7139Â±0.0035 | trees=[1087, 1091, 911] | lr=0.027, depth=9, mcw=9.85, subsample=0.681, colsample=0.806, gamma=1.060, alpha=1.028, lambda=1.419
+Trial 021 | F1=0.7166Â±0.0029 | trees=[1150, 1036, 1073] | lr=0.014, depth=10, mcw=6.64, subsample=0.930, colsample=0.791, gamma=0.003, alpha=0.924, lambda=1.793
+Trial 022 | F1=0.7168Â±0.0032 | trees=[1107, 985, 925] | lr=0.017, depth=10, mcw=6.51, subsample=0.948, colsample=0.774, gamma=0.013, alpha=0.985, lambda=1.766
+Trial 023 | F1=0.7168Â±0.0037 | trees=[1996, 1447, 1421] | lr=0.017, depth=9, mcw=3.92, subsample=0.983, colsample=0.686, gamma=0.179, alpha=1.416, lambda=2.358
+Trial 024 | F1=0.7159Â±0.0041 | trees=[1296, 1352, 1156] | lr=0.020, depth=8, mcw=8.45, subsample=0.876, colsample=0.727, gamma=0.420, alpha=1.079, lambda=0.821
+Trial 025 | F1=0.7169Â±0.0027 | trees=[553, 562, 577] | lr=0.031, depth=10, mcw=6.64, subsample=0.949, colsample=0.773, gamma=0.191, alpha=0.787, lambda=2.998
+Trial 026 | F1=0.7151Â±0.0033 | trees=[707, 716, 652] | lr=0.032, depth=9, mcw=8.17, subsample=0.833, colsample=0.848, gamma=0.436, alpha=0.768, lambda=2.938
+Trial 027 | F1=0.7170Â±0.0036 | trees=[447, 433, 453] | lr=0.048, depth=10, mcw=6.83, subsample=0.974, colsample=0.653, gamma=0.227, alpha=0.469, lambda=2.532
+Trial 028 | F1=0.6995Â±0.0035 | trees=[517, 533, 340] | lr=0.089, depth=7, mcw=9.10, subsample=0.979, colsample=0.643, gamma=1.525, alpha=0.462, lambda=2.493
+Trial 029 | F1=0.7150Â±0.0038 | trees=[371, 375, 379] | lr=0.049, depth=10, mcw=7.19, subsample=0.853, colsample=0.671, gamma=0.311, alpha=0.240, lambda=2.687
+Trial 030 | F1=0.7093Â±0.0029 | trees=[211, 182, 163] | lr=0.147, depth=8, mcw=9.18, subsample=0.793, colsample=0.601, gamma=0.455, alpha=0.085, lambda=2.048
+Trial 031 | F1=0.7166Â±0.0034 | trees=[611, 580, 530] | lr=0.031, depth=10, mcw=6.78, subsample=0.933, colsample=0.727, gamma=0.208, alpha=0.463, lambda=2.991
+Trial 032 | F1=0.7152Â±0.0032 | trees=[595, 658, 570] | lr=0.040, depth=9, mcw=7.93, subsample=0.999, colsample=0.703, gamma=0.162, alpha=0.773, lambda=2.525
+Trial 033 | F1=0.7160Â±0.0040 | trees=[403, 404, 424] | lr=0.055, depth=10, mcw=4.72, subsample=0.969, colsample=0.652, gamma=0.360, alpha=0.193, lambda=2.738
+Trial 034 | F1=0.7163Â±0.0019 | trees=[333, 370, 275] | lr=0.066, depth=9, mcw=5.64, subsample=0.900, colsample=0.760, gamma=0.258, alpha=0.383, lambda=2.833
+Trial 035 | F1=0.7162Â±0.0048 | trees=[753, 646, 609] | lr=0.026, depth=10, mcw=6.41, subsample=0.943, colsample=0.822, gamma=0.114, alpha=1.112, lambda=2.511
+Trial 036 | F1=0.7133Â±0.0023 | trees=[2815, 2549, 2558] | lr=0.013, depth=9, mcw=9.38, subsample=0.975, colsample=0.626, gamma=0.516, alpha=0.578, lambda=1.349
+Trial 037 | F1=0.7117Â±0.0030 | trees=[985, 906, 1509] | lr=0.045, depth=8, mcw=4.30, subsample=0.964, colsample=0.681, gamma=0.747, alpha=0.633, lambda=2.234
+Trial 038 | F1=0.7169Â±0.0031 | trees=[961, 837, 828] | lr=0.024, depth=10, mcw=8.22, subsample=0.885, colsample=0.865, gamma=0.358, alpha=1.267, lambda=1.916
+Trial 039 | F1=0.7162Â±0.0036 | trees=[916, 821, 764] | lr=0.038, depth=7, mcw=7.04, subsample=0.923, colsample=0.992, gamma=0.080, alpha=1.486, lambda=2.858
+Trial 040 | F1=0.7138Â±0.0027 | trees=[2186, 1944, 2087] | lr=0.012, depth=9, mcw=5.23, subsample=1.000, colsample=0.737, gamma=0.228, alpha=0.843, lambda=1.548
+Trial 041 | F1=0.7161Â±0.0044 | trees=[954, 962, 828] | lr=0.023, depth=10, mcw=8.25, subsample=0.885, colsample=0.879, gamma=0.383, alpha=1.255, lambda=1.935
+Trial 042 | F1=0.7156Â±0.0030 | trees=[594, 494, 565] | lr=0.034, depth=10, mcw=9.97, subsample=0.914, colsample=0.866, gamma=0.300, alpha=1.131, lambda=1.167
+Trial 043 | F1=0.7150Â±0.0036 | trees=[710, 667, 617] | lr=0.027, depth=10, mcw=7.77, subsample=0.815, colsample=0.932, gamma=0.115, alpha=1.711, lambda=2.589
+Trial 044 | F1=0.7163Â±0.0034 | trees=[1441, 1126, 1051] | lr=0.024, depth=9, mcw=9.53, subsample=0.867, colsample=0.787, gamma=0.581, alpha=1.451, lambda=1.650
+Trial 045 | F1=0.7156Â±0.0037 | trees=[1232, 1101, 1002] | lr=0.015, depth=10, mcw=7.42, subsample=0.940, colsample=0.839, gamma=0.082, alpha=1.357, lambda=0.834
+Trial 046 | F1=0.7155Â±0.0021 | trees=[2961, 3000, 2990] | lr=0.022, depth=5, mcw=8.53, subsample=0.902, colsample=0.755, gamma=0.496, alpha=0.667, lambda=2.150
+Trial 047 | F1=0.7171Â±0.0038 | trees=[2131, 1964, 1956] | lr=0.011, depth=9, mcw=8.11, subsample=0.956, colsample=0.904, gamma=0.206, alpha=1.625, lambda=2.427
+Trial 048 | F1=0.7032Â±0.0039 | trees=[1804, 1919, 2698] | lr=0.012, depth=9, mcw=5.99, subsample=0.968, colsample=0.699, gamma=1.533, alpha=1.580, lambda=2.413
+Trial 049 | F1=0.7179Â±0.0038 | trees=[2643, 2893, 2266] | lr=0.010, depth=8, mcw=6.97, subsample=0.956, colsample=0.951, gamma=0.183, alpha=1.906, lambda=2.729
+Trial 050 | F1=0.7087Â±0.0033 | trees=[2994, 2199, 2996] | lr=0.011, depth=8, mcw=8.99, subsample=0.987, colsample=0.966, gamma=0.660, alpha=1.778, lambda=2.650
+Trial 051 | F1=0.7173Â±0.0038 | trees=[1685, 1891, 1482] | lr=0.014, depth=9, mcw=6.93, subsample=0.959, colsample=0.942, gamma=0.204, alpha=1.900, lambda=2.796
+Trial 052 | F1=0.7179Â±0.0040 | trees=[1788, 1897, 1913] | lr=0.015, depth=9, mcw=7.63, subsample=0.959, colsample=0.951, gamma=0.260, alpha=1.854, lambda=2.665
+Trial 053 | F1=0.7172Â±0.0039 | trees=[2999, 2984, 3000] | lr=0.010, depth=7, mcw=7.75, subsample=0.961, colsample=0.944, gamma=0.088, alpha=1.867, lambda=2.794
+Trial 054 | F1=0.7167Â±0.0047 | trees=[3000, 2945, 2735] | lr=0.015, depth=6, mcw=7.58, subsample=0.926, colsample=0.948, gamma=0.060, alpha=1.840, lambda=2.796
+Trial 055 | F1=0.7167Â±0.0037 | trees=[2999, 2994, 2999] | lr=0.010, depth=7, mcw=7.66, subsample=0.958, colsample=0.938, gamma=0.136, alpha=1.931, lambda=2.671
+Trial 056 | F1=0.7073Â±0.0051 | trees=[2209, 1476, 1545] | lr=0.013, depth=8, mcw=6.26, subsample=0.983, colsample=0.918, gamma=0.935, alpha=1.871, lambda=2.888
+Trial 057 | F1=0.7137Â±0.0029 | trees=[2348, 2070, 2012] | lr=0.018, depth=6, mcw=8.56, subsample=0.672, colsample=0.971, gamma=0.033, alpha=1.976, lambda=1.201
+Trial 058 | F1=0.7167Â±0.0053 | trees=[1762, 1948, 1677] | lr=0.016, depth=8, mcw=7.22, subsample=0.939, colsample=1.000, gamma=0.307, alpha=1.827, lambda=2.180
+Trial 059 | F1=0.7164Â±0.0041 | trees=[2359, 2510, 2229] | lr=0.014, depth=7, mcw=9.51, subsample=0.913, colsample=0.899, gamma=0.139, alpha=1.688, lambda=2.775
+Trial 060 | F1=0.7177Â±0.0044 | trees=[2170, 2167, 2166] | lr=0.012, depth=8, mcw=6.88, subsample=0.987, colsample=0.960, gamma=0.027, alpha=1.778, lambda=0.996
+Trial 061 | F1=0.7182Â±0.0040 | trees=[2356, 2074, 1911] | lr=0.012, depth=8, mcw=6.95, subsample=0.991, colsample=0.955, gamma=0.007, alpha=1.901, lambda=0.924
+Trial 062 | F1=0.7176Â±0.0038 | trees=[2275, 2136, 1912] | lr=0.011, depth=8, mcw=7.06, subsample=0.963, colsample=0.957, gamma=0.004, alpha=1.789, lambda=0.804
+Trial 063 | F1=0.7182Â±0.0036 | trees=[1595, 1411, 1488] | lr=0.017, depth=8, mcw=6.91, subsample=0.992, colsample=0.954, gamma=0.019, alpha=1.766, lambda=0.803
+Trial 064 | F1=0.7180Â±0.0048 | trees=[1608, 1578, 1406] | lr=0.016, depth=8, mcw=5.59, subsample=0.992, colsample=0.959, gamma=0.022, alpha=1.781, lambda=0.900
+Trial 065 | F1=0.7174Â±0.0040 | trees=[1451, 1352, 1263] | lr=0.018, depth=8, mcw=5.75, subsample=0.991, colsample=0.983, gamma=0.004, alpha=1.615, lambda=0.393
+Trial 066 | F1=0.7181Â±0.0050 | trees=[2150, 2457, 2241] | lr=0.012, depth=8, mcw=5.27, subsample=0.990, colsample=0.920, gamma=0.109, alpha=2.000, lambda=0.973
+Trial 067 | F1=0.7156Â±0.0046 | trees=[2035, 2691, 2009] | lr=0.016, depth=8, mcw=5.33, subsample=0.987, colsample=0.958, gamma=0.270, alpha=1.972, lambda=0.993
+Trial 068 | F1=0.7034Â±0.0039 | trees=[1871, 2116, 2698] | lr=0.012, depth=7, mcw=3.18, subsample=0.977, colsample=0.922, gamma=1.107, alpha=1.771, lambda=0.646
+Trial 069 | F1=0.7172Â±0.0049 | trees=[1752, 1949, 1696] | lr=0.016, depth=8, mcw=6.30, subsample=0.990, colsample=0.984, gamma=0.142, alpha=1.931, lambda=0.945
+Trial 070 | F1=0.7070Â±0.0032 | trees=[2475, 2595, 2993] | lr=0.020, depth=8, mcw=5.17, subsample=0.774, colsample=0.920, gamma=1.974, alpha=1.997, lambda=0.564
+Trial 071 | F1=0.7174Â±0.0043 | trees=[1877, 2226, 1896] | lr=0.014, depth=8, mcw=6.13, subsample=0.997, colsample=0.956, gamma=0.057, alpha=1.677, lambda=0.681
+Trial 072 | F1=0.7180Â±0.0035 | trees=[2726, 2786, 2701] | lr=0.012, depth=7, mcw=6.59, subsample=0.976, colsample=0.889, gamma=0.067, alpha=1.739, lambda=0.917
+Trial 073 | F1=0.7180Â±0.0039 | trees=[2722, 2868, 2688] | lr=0.012, depth=7, mcw=6.54, subsample=0.975, colsample=0.896, gamma=0.163, alpha=1.738, lambda=0.900
+Trial 074 | F1=0.7179Â±0.0040 | trees=[2628, 2648, 2595] | lr=0.013, depth=7, mcw=5.53, subsample=0.976, colsample=0.892, gamma=0.161, alpha=1.710, lambda=0.451
+Trial 075 | F1=0.7183Â±0.0045 | trees=[2887, 2994, 2717] | lr=0.011, depth=7, mcw=4.83, subsample=0.952, colsample=0.928, gamma=0.251, alpha=1.827, lambda=0.207
+Trial 076 | F1=0.7165Â±0.0045 | trees=[2044, 1863, 1672] | lr=0.017, depth=7, mcw=4.36, subsample=0.935, colsample=0.911, gamma=0.357, alpha=1.826, lambda=0.239
+Trial 077 | F1=0.7153Â±0.0038 | trees=[3000, 2999, 2999] | lr=0.011, depth=6, mcw=4.79, subsample=0.946, colsample=0.929, gamma=0.258, alpha=1.638, lambda=0.115
+Trial 078 | F1=0.7172Â±0.0043 | trees=[3000, 2997, 2805] | lr=0.015, depth=6, mcw=3.67, subsample=0.972, colsample=0.890, gamma=0.091, alpha=1.537, lambda=0.711
+Trial 079 | F1=0.7086Â±0.0037 | trees=[1826, 1883, 1937] | lr=0.012, depth=7, mcw=4.51, subsample=0.999, colsample=0.976, gamma=0.424, alpha=1.820, lambda=1.135
+Trial 080 | F1=0.7177Â±0.0044 | trees=[2266, 2367, 2392] | lr=0.014, depth=7, mcw=5.07, subsample=0.948, colsample=0.876, gamma=0.230, alpha=1.744, lambda=1.228
+Trial 081 | F1=0.7180Â±0.0034 | trees=[2998, 3000, 2956] | lr=0.011, depth=7, mcw=6.61, subsample=0.978, colsample=0.911, gamma=0.171, alpha=1.901, lambda=0.868
+Trial 082 | F1=0.7176Â±0.0040 | trees=[2590, 2674, 2447] | lr=0.013, depth=7, mcw=6.55, subsample=0.970, colsample=0.914, gamma=0.117, alpha=1.943, lambda=0.911
+Trial 083 | F1=0.7177Â±0.0032 | trees=[3000, 3000, 2791] | lr=0.011, depth=7, mcw=5.72, subsample=0.977, colsample=0.931, gamma=0.069, alpha=1.879, lambda=0.768
+Trial 084 | F1=0.7148Â±0.0033 | trees=[3000, 2999, 2998] | lr=0.013, depth=6, mcw=7.31, subsample=0.983, colsample=0.853, gamma=0.263, alpha=1.734, lambda=1.085
+Trial 085 | F1=0.6936Â±0.0037 | trees=[1400, 1216, 1754] | lr=0.012, depth=7, mcw=6.14, subsample=0.988, colsample=0.898, gamma=1.865, alpha=1.587, lambda=0.864
+Trial 086 | F1=0.7157Â±0.0036 | trees=[2998, 2994, 3000] | lr=0.010, depth=7, mcw=6.69, subsample=0.952, colsample=0.929, gamma=0.347, alpha=1.660, lambda=1.420
+Trial 087 | F1=0.7157Â±0.0037 | trees=[630, 604, 591] | lr=0.127, depth=5, mcw=5.88, subsample=0.967, colsample=0.968, gamma=0.184, alpha=2.000, lambda=0.491
+Trial 088 | F1=0.7182Â±0.0037 | trees=[1742, 1766, 1597] | lr=0.015, depth=8, mcw=3.95, subsample=0.993, colsample=0.938, gamma=0.052, alpha=1.850, lambda=0.746
+Trial 089 | F1=0.7184Â±0.0039 | trees=[1259, 1131, 1163] | lr=0.021, depth=8, mcw=5.36, subsample=0.996, colsample=0.884, gamma=0.058, alpha=1.512, lambda=0.617
+Trial 090 | F1=0.7172Â±0.0045 | trees=[1321, 1334, 1162] | lr=0.019, depth=8, mcw=3.79, subsample=0.993, colsample=0.886, gamma=0.049, alpha=1.461, lambda=0.600
+Trial 091 | F1=0.7154Â±0.0033 | trees=[923, 1143, 968] | lr=0.021, depth=8, mcw=3.99, subsample=1.000, colsample=0.908, gamma=0.124, alpha=1.793, lambda=0.733
+Trial 092 | F1=0.7175Â±0.0042 | trees=[1595, 1348, 1358] | lr=0.017, depth=8, mcw=2.29, subsample=0.980, colsample=0.875, gamma=0.057, alpha=1.914, lambda=1.015
+Trial 093 | F1=0.7181Â±0.0039 | trees=[2364, 2318, 2145] | lr=0.011, depth=8, mcw=5.42, subsample=0.969, colsample=0.862, gamma=0.165, alpha=1.724, lambda=0.893
+Trial 094 | F1=0.7144Â±0.0046 | trees=[1417, 1440, 1349] | lr=0.016, depth=8, mcw=5.34, subsample=0.718, colsample=0.860, gamma=0.109, alpha=1.513, lambda=0.926
+Trial 095 | F1=0.6767Â±0.0031 | trees=[3000, 3000, 3000] | lr=0.013, depth=3, mcw=4.62, subsample=0.968, colsample=0.943, gamma=0.033, alpha=1.732, lambda=0.628
+Trial 096 | F1=0.7183Â±0.0047 | trees=[1974, 1804, 1803] | lr=0.013, depth=8, mcw=5.48, subsample=0.992, colsample=0.900, gamma=0.002, alpha=1.587, lambda=0.233
+Trial 097 | F1=0.7178Â±0.0031 | trees=[1613, 1393, 1499] | lr=0.015, depth=8, mcw=4.91, subsample=0.996, colsample=0.924, gamma=0.007, alpha=1.594, lambda=0.222
+Trial 098 | F1=0.7181Â±0.0037 | trees=[2065, 1907, 1704] | lr=0.013, depth=8, mcw=4.94, subsample=0.987, colsample=0.829, gamma=0.075, alpha=1.400, lambda=0.309
+Trial 099 | F1=0.7161Â±0.0044 | trees=[1762, 1962, 2248] | lr=0.014, depth=8, mcw=4.08, subsample=0.990, colsample=0.825, gamma=0.207, alpha=1.417, lambda=0.033
+Trial 100 | F1=0.7184Â±0.0032 | trees=[1103, 1098, 894] | lr=0.020, depth=9, mcw=4.99, subsample=0.985, colsample=0.840, gamma=0.097, alpha=1.550, lambda=0.286
+Trial 101 | F1=0.7172Â±0.0043 | trees=[1039, 969, 906] | lr=0.020, depth=9, mcw=5.38, subsample=0.985, colsample=0.847, gamma=0.092, alpha=1.323, lambda=0.324
+Trial 102 | F1=0.7173Â±0.0028 | trees=[1310, 1081, 922] | lr=0.021, depth=9, mcw=5.00, subsample=0.991, colsample=0.828, gamma=0.117, alpha=1.547, lambda=0.136
+Trial 103 | F1=0.7177Â±0.0035 | trees=[1394, 1329, 1241] | lr=0.017, depth=8, mcw=4.22, subsample=0.964, colsample=0.810, gamma=0.042, alpha=1.395, lambda=0.288
+Trial 104 | F1=0.7177Â±0.0039 | trees=[2131, 1928, 1820] | lr=0.011, depth=8, mcw=3.22, subsample=0.951, colsample=0.839, gamma=0.007, alpha=1.642, lambda=0.452
+Trial 105 | F1=0.7178Â±0.0039 | trees=[945, 995, 829] | lr=0.029, depth=8, mcw=4.66, subsample=0.980, colsample=0.863, gamma=0.145, alpha=1.684, lambda=0.157
+Trial 106 | F1=0.7148Â±0.0033 | trees=[1546, 1487, 1068] | lr=0.022, depth=9, mcw=5.59, subsample=0.992, colsample=0.937, gamma=0.236, alpha=1.554, lambda=0.376
+Trial 107 | F1=0.7037Â±0.0040 | trees=[2308, 1686, 2718] | lr=0.013, depth=8, mcw=5.17, subsample=0.967, colsample=0.874, gamma=1.477, alpha=1.493, lambda=0.511
+Trial 108 | F1=0.7172Â±0.0039 | trees=[1346, 1303, 1244] | lr=0.015, depth=9, mcw=4.50, subsample=0.940, colsample=0.798, gamma=0.083, alpha=1.954, lambda=0.217
+Trial 109 | F1=0.7179Â±0.0039 | trees=[1501, 1613, 1274] | lr=0.019, depth=8, mcw=5.49, subsample=0.999, colsample=0.832, gamma=0.043, alpha=1.805, lambda=0.547
+Trial 110 | F1=0.7132Â±0.0032 | trees=[860, 962, 828] | lr=0.025, depth=8, mcw=5.81, subsample=0.679, colsample=0.817, gamma=0.321, alpha=1.870, lambda=0.076
+Trial 111 | F1=0.7192Â±0.0040 | trees=[2034, 1814, 1682] | lr=0.013, depth=8, mcw=4.87, subsample=0.982, colsample=0.883, gamma=0.000, alpha=1.767, lambda=0.756
+Trial 112 | F1=0.7181Â±0.0039 | trees=[2245, 2075, 2084] | lr=0.010, depth=8, mcw=4.92, subsample=0.984, colsample=0.904, gamma=0.001, alpha=1.844, lambda=0.670
+Trial 113 | F1=0.7177Â±0.0039 | trees=[2522, 2497, 2049] | lr=0.011, depth=8, mcw=4.85, subsample=0.982, colsample=0.857, gamma=0.104, alpha=1.835, lambda=0.798
+Trial 114 | F1=0.7175Â±0.0041 | trees=[2624, 2481, 2154] | lr=0.011, depth=8, mcw=5.03, subsample=0.959, colsample=0.905, gamma=0.154, alpha=1.656, lambda=0.670
+Trial 115 | F1=0.7154Â±0.0032 | trees=[116, 109, 132] | lr=0.197, depth=8, mcw=4.42, subsample=0.972, colsample=0.870, gamma=0.064, alpha=1.861, lambda=0.453
+Trial 116 | F1=0.7169Â±0.0038 | trees=[1755, 1517, 1616] | lr=0.012, depth=9, mcw=5.34, subsample=0.987, colsample=0.883, gamma=0.003, alpha=1.451, lambda=0.737
+Trial 117 | F1=0.7148Â±0.0047 | trees=[1772, 1769, 1633] | lr=0.013, depth=8, mcw=3.59, subsample=0.623, colsample=0.842, gamma=0.198, alpha=1.698, lambda=0.383
+Trial 118 | F1=0.7152Â±0.0038 | trees=[1861, 1906, 1886] | lr=0.014, depth=8, mcw=4.18, subsample=0.962, colsample=0.902, gamma=0.102, alpha=0.007, lambda=0.608
+Trial 119 | F1=0.7156Â±0.0039 | trees=[1394, 1529, 1479] | lr=0.013, depth=9, mcw=4.70, subsample=0.748, colsample=0.854, gamma=0.151, alpha=1.592, lambda=0.269
+Trial 120 | F1=0.7188Â±0.0043 | trees=[2397, 2152, 1971] | lr=0.011, depth=8, mcw=5.14, subsample=0.981, colsample=0.923, gamma=0.003, alpha=1.942, lambda=0.319
+Trial 121 | F1=0.7184Â±0.0042 | trees=[2484, 2152, 2178] | lr=0.011, depth=8, mcw=5.13, subsample=0.984, colsample=0.921, gamma=0.053, alpha=1.958, lambda=0.345
+Trial 122 | F1=0.7180Â±0.0043 | trees=[2513, 2177, 1972] | lr=0.011, depth=8, mcw=5.01, subsample=0.972, colsample=0.936, gamma=0.045, alpha=1.942, lambda=0.176
+Trial 123 | F1=0.7187Â±0.0045 | trees=[2240, 1859, 1951] | lr=0.011, depth=8, mcw=5.17, subsample=0.981, colsample=0.947, gamma=0.004, alpha=1.892, lambda=0.347
+Trial 124 | F1=0.7177Â±0.0039 | trees=[2275, 2220, 1983] | lr=0.011, depth=8, mcw=5.24, subsample=0.978, colsample=0.917, gamma=0.031, alpha=1.878, lambda=0.528
+Trial 125 | F1=0.7176Â±0.0036 | trees=[2423, 2352, 2152] | lr=0.010, depth=8, mcw=5.50, subsample=0.952, colsample=0.949, gamma=0.003, alpha=1.909, lambda=0.416
+Trial 126 | F1=0.7174Â±0.0034 | trees=[1768, 1665, 1480] | lr=0.012, depth=9, mcw=6.01, subsample=0.932, colsample=0.925, gamma=0.065, alpha=1.775, lambda=0.340
+Trial 127 | F1=0.7145Â±0.0042 | trees=[2119, 2241, 2347] | lr=0.011, depth=8, mcw=4.60, subsample=1.000, colsample=0.935, gamma=0.140, alpha=1.841, lambda=0.211
+Trial 128 | F1=0.7077Â±0.0047 | trees=[1969, 1821, 1383] | lr=0.014, depth=8, mcw=4.80, subsample=0.982, colsample=0.896, gamma=0.854, alpha=1.967, lambda=0.817
+Trial 129 | F1=0.7171Â±0.0041 | trees=[1498, 1321, 1327] | lr=0.015, depth=9, mcw=5.17, subsample=0.964, colsample=0.882, gamma=0.102, alpha=1.818, lambda=0.006
+Trial 130 | F1=0.7182Â±0.0045 | trees=[2183, 2078, 1976] | lr=0.012, depth=8, mcw=4.33, subsample=0.971, colsample=0.976, gamma=0.172, alpha=1.752, lambda=0.092
+Trial 131 | F1=0.7176Â±0.0041 | trees=[2021, 2109, 1842] | lr=0.012, depth=8, mcw=5.68, subsample=0.972, colsample=0.982, gamma=0.046, alpha=1.757, lambda=0.088
+Trial 132 | F1=0.7178Â±0.0041 | trees=[2737, 2169, 2371] | lr=0.011, depth=8, mcw=3.84, subsample=0.981, colsample=0.972, gamma=0.179, alpha=1.897, lambda=0.269
+Trial 133 | F1=0.7170Â±0.0040 | trees=[2128, 1909, 1911] | lr=0.011, depth=8, mcw=4.29, subsample=0.993, colsample=0.993, gamma=0.008, alpha=1.812, lambda=0.177
+Trial 134 | F1=0.7178Â±0.0034 | trees=[2646, 2163, 2163] | lr=0.010, depth=8, mcw=4.75, subsample=0.955, colsample=0.962, gamma=0.086, alpha=1.697, lambda=0.695
+Trial 135 | F1=0.7181Â±0.0044 | trees=[1969, 1885, 1656] | lr=0.012, depth=8, mcw=3.46, subsample=0.970, colsample=0.943, gamma=0.001, alpha=1.930, lambda=0.338
+Trial 136 | F1=0.7158Â±0.0036 | trees=[1927, 1745, 1695] | lr=0.012, depth=8, mcw=3.50, subsample=0.818, colsample=0.946, gamma=0.228, alpha=1.946, lambda=0.357
+Trial 137 | F1=0.7182Â±0.0039 | trees=[1988, 1867, 1901] | lr=0.014, depth=8, mcw=3.33, subsample=0.971, colsample=0.965, gamma=0.142, alpha=1.906, lambda=0.093
+Trial 138 | F1=0.7172Â±0.0037 | trees=[1660, 1579, 1549] | lr=0.015, depth=8, mcw=3.05, subsample=0.963, colsample=0.953, gamma=0.129, alpha=1.923, lambda=0.101
+Trial 139 | F1=0.7010Â±0.0028 | trees=[3000, 3000, 3000] | lr=0.014, depth=4, mcw=3.28, subsample=0.946, colsample=0.964, gamma=0.052, alpha=1.886, lambda=0.055
+Trial 140 | F1=0.7181Â±0.0042 | trees=[2169, 2182, 2242] | lr=0.014, depth=7, mcw=4.05, subsample=0.993, colsample=0.942, gamma=0.081, alpha=1.969, lambda=0.296
+Trial 141 | F1=0.7169Â±0.0036 | trees=[1988, 2186, 1662] | lr=0.013, depth=8, mcw=3.49, subsample=0.980, colsample=0.977, gamma=0.198, alpha=1.775, lambda=0.149
+Trial 142 | F1=0.7184Â±0.0044 | trees=[2052, 2082, 1826] | lr=0.012, depth=8, mcw=2.25, subsample=0.971, colsample=0.968, gamma=0.167, alpha=1.856, lambda=0.421
+Trial 143 | F1=0.7180Â±0.0038 | trees=[2267, 1746, 1834] | lr=0.013, depth=8, mcw=2.40, subsample=0.974, colsample=0.966, gamma=0.116, alpha=1.921, lambda=0.412
+Trial 144 | F1=0.7175Â±0.0040 | trees=[352, 322, 339] | lr=0.070, depth=8, mcw=1.98, subsample=0.959, colsample=0.991, gamma=0.000, alpha=1.864, lambda=0.475
+Trial 145 | F1=0.7180Â±0.0044 | trees=[1538, 1408, 1462] | lr=0.016, depth=8, mcw=1.09, subsample=0.987, colsample=0.953, gamma=0.052, alpha=1.800, lambda=0.235
+Trial 146 | F1=0.7174Â±0.0041 | trees=[1668, 1581, 1546] | lr=0.012, depth=9, mcw=2.71, subsample=0.968, colsample=0.933, gamma=0.136, alpha=1.992, lambda=0.276
+Trial 147 | F1=0.7133Â±0.0042 | trees=[1559, 1919, 3000] | lr=0.014, depth=8, mcw=4.44, subsample=0.993, colsample=0.969, gamma=0.291, alpha=1.885, lambda=0.339
+Trial 148 | F1=0.7175Â±0.0039 | trees=[1600, 1350, 1345] | lr=0.018, depth=8, mcw=5.15, subsample=0.977, colsample=0.913, gamma=0.083, alpha=1.841, lambda=0.572
+Trial 149 | F1=0.7166Â±0.0025 | trees=[830, 935, 719] | lr=0.041, depth=7, mcw=2.69, subsample=0.941, colsample=0.947, gamma=0.176, alpha=1.935, lambda=0.203
+Trial 150 | F1=0.7172Â±0.0035 | trees=[1971, 1969, 1719] | lr=0.013, depth=8, mcw=1.66, subsample=0.999, colsample=0.957, gamma=0.051, alpha=1.805, lambda=0.397
+Trial 151 | F1=0.7176Â±0.0042 | trees=[2596, 2036, 2222] | lr=0.012, depth=8, mcw=5.47, subsample=0.967, colsample=0.977, gamma=0.236, alpha=1.749, lambda=0.002
+Trial 152 | F1=0.7179Â±0.0043 | trees=[2315, 2318, 2261] | lr=0.011, depth=8, mcw=5.30, subsample=0.974, colsample=0.925, gamma=0.164, alpha=1.720, lambda=0.779
+Trial 153 | F1=0.7047Â±0.0045 | trees=[1728, 1682, 1553] | lr=0.012, depth=8, mcw=3.00, subsample=0.985, colsample=0.940, gamma=1.092, alpha=1.659, lambda=0.146
+Trial 154 | F1=0.7177Â±0.0042 | trees=[1909, 1885, 1669] | lr=0.013, depth=8, mcw=3.81, subsample=0.954, colsample=0.987, gamma=0.036, alpha=1.857, lambda=0.523
+Trial 155 | F1=0.7182Â±0.0039 | trees=[2160, 2195, 1943] | lr=0.012, depth=8, mcw=4.57, subsample=0.988, colsample=0.999, gamma=0.115, alpha=1.627, lambda=0.323
+Trial 156 | F1=0.7173Â±0.0041 | trees=[2096, 1816, 1682] | lr=0.014, depth=8, mcw=4.09, subsample=0.987, colsample=0.999, gamma=0.111, alpha=1.904, lambda=0.298
+Trial 157 | F1=0.7010Â±0.0038 | trees=[1327, 1007, 1221] | lr=0.013, depth=8, mcw=4.56, subsample=0.999, colsample=0.971, gamma=1.200, alpha=1.607, lambda=0.240
+Trial 158 | F1=0.7168Â±0.0036 | trees=[1285, 1276, 1099] | lr=0.015, depth=9, mcw=3.40, subsample=0.982, colsample=0.979, gamma=0.077, alpha=1.555, lambda=0.344
+Trial 159 | F1=0.7081Â±0.0040 | trees=[2108, 2375, 1823] | lr=0.010, depth=8, mcw=4.41, subsample=0.993, colsample=0.962, gamma=0.699, alpha=1.621, lambda=0.438
+Trial 160 | F1=0.7173Â±0.0045 | trees=[269, 265, 275] | lr=0.087, depth=8, mcw=4.82, subsample=0.976, colsample=0.951, gamma=0.006, alpha=0.939, lambda=0.114
+Trial 161 | F1=0.7186Â±0.0034 | trees=[2357, 2154, 2155] | lr=0.011, depth=8, mcw=5.05, subsample=0.966, colsample=0.935, gamma=0.136, alpha=1.719, lambda=1.033
+Trial 162 | F1=0.7175Â±0.0036 | trees=[2337, 1882, 2006] | lr=0.012, depth=8, mcw=5.06, subsample=0.961, colsample=0.930, gamma=0.131, alpha=1.766, lambda=0.183
+Trial 163 | F1=0.7181Â±0.0040 | trees=[2274, 2256, 2224] | lr=0.011, depth=8, mcw=4.65, subsample=0.985, colsample=0.917, gamma=0.040, alpha=1.705, lambda=1.034
+Trial 164 | F1=0.7178Â±0.0041 | trees=[2075, 1903, 1968] | lr=0.012, depth=8, mcw=4.99, subsample=0.970, colsample=0.940, gamma=0.086, alpha=1.955, lambda=0.618
+Trial 165 | F1=0.7181Â±0.0043 | trees=[2590, 2371, 2265] | lr=0.013, depth=7, mcw=1.64, subsample=0.980, colsample=0.933, gamma=0.136, alpha=1.502, lambda=0.480
+Trial 166 | F1=0.7069Â±0.0035 | trees=[3000, 3000, 2987] | lr=0.011, depth=8, mcw=4.84, subsample=0.858, colsample=1.000, gamma=1.660, alpha=1.827, lambda=0.751
+Trial 167 | F1=0.7159Â±0.0040 | trees=[1776, 2467, 2238] | lr=0.014, depth=8, mcw=3.70, subsample=0.991, colsample=0.957, gamma=0.207, alpha=1.662, lambda=0.369
+Trial 168 | F1=0.7176Â±0.0033 | trees=[1920, 1986, 1785] | lr=0.012, depth=8, mcw=4.24, subsample=0.963, colsample=0.922, gamma=0.002, alpha=1.784, lambda=0.835
+Trial 169 | F1=0.7158Â±0.0035 | trees=[414, 372, 395] | lr=0.057, depth=8, mcw=5.34, subsample=0.973, colsample=0.909, gamma=0.084, alpha=1.029, lambda=0.263
+Trial 170 | F1=0.7172Â±0.0037 | trees=[1922, 1516, 1431] | lr=0.013, depth=9, mcw=5.04, subsample=0.987, colsample=0.946, gamma=0.041, alpha=1.891, lambda=0.051
+Trial 171 | F1=0.7183Â±0.0043 | trees=[2544, 2504, 2123] | lr=0.011, depth=8, mcw=5.44, subsample=0.969, colsample=0.892, gamma=0.164, alpha=1.723, lambda=1.096
+Trial 172 | F1=0.7183Â±0.0036 | trees=[2247, 2381, 2316] | lr=0.011, depth=8, mcw=5.68, subsample=0.953, colsample=0.895, gamma=0.165, alpha=1.734, lambda=1.084
+Trial 173 | F1=0.7181Â±0.0040 | trees=[2259, 2367, 2422] | lr=0.011, depth=8, mcw=5.70, subsample=0.947, colsample=0.889, gamma=0.178, alpha=1.690, lambda=1.234
+Trial 174 | F1=0.7182Â±0.0040 | trees=[2613, 2565, 2135] | lr=0.011, depth=8, mcw=5.85, subsample=0.954, colsample=0.896, gamma=0.248, alpha=1.751, lambda=1.164
+Trial 175 | F1=0.7176Â±0.0040 | trees=[2486, 2377, 2146] | lr=0.011, depth=8, mcw=6.01, subsample=0.954, colsample=0.890, gamma=0.230, alpha=1.738, lambda=1.064
+Trial 176 | F1=0.7172Â±0.0041 | trees=[2645, 2412, 2357] | lr=0.010, depth=8, mcw=6.39, subsample=0.934, colsample=0.896, gamma=0.288, alpha=1.639, lambda=1.129
+Trial 177 | F1=0.7168Â±0.0041 | trees=[2999, 2909, 2988] | lr=0.011, depth=8, mcw=5.86, subsample=0.982, colsample=0.878, gamma=0.244, alpha=1.566, lambda=1.318
+Trial 178 | F1=0.7169Â±0.0037 | trees=[3000, 2955, 2999] | lr=0.011, depth=7, mcw=5.63, subsample=0.917, colsample=0.904, gamma=0.325, alpha=1.753, lambda=0.982
+Trial 179 | F1=0.7171Â±0.0037 | trees=[2234, 2156, 2015] | lr=0.012, depth=8, mcw=5.22, subsample=0.957, colsample=0.898, gamma=0.204, alpha=1.683, lambda=1.100
+Trial 180 | F1=0.7180Â±0.0047 | trees=[2112, 2376, 2193] | lr=0.012, depth=8, mcw=5.55, subsample=0.993, colsample=0.874, gamma=0.105, alpha=1.626, lambda=1.171
+Trial 181 | F1=0.7178Â±0.0040 | trees=[2158, 2103, 1877] | lr=0.013, depth=8, mcw=5.15, subsample=0.966, colsample=0.910, gamma=0.155, alpha=1.810, lambda=1.037
+Trial 182 | F1=0.7175Â±0.0040 | trees=[2620, 2404, 2133] | lr=0.011, depth=8, mcw=6.16, subsample=0.978, colsample=0.914, gamma=0.132, alpha=1.720, lambda=0.975
+Trial 183 | F1=0.7177Â±0.0039 | trees=[2721, 2488, 2392] | lr=0.010, depth=8, mcw=7.18, subsample=0.975, colsample=0.887, gamma=0.069, alpha=1.842, lambda=0.874
+Trial 184 | F1=0.7184Â±0.0046 | trees=[1934, 2062, 1964] | lr=0.013, depth=8, mcw=4.74, subsample=0.945, colsample=0.927, gamma=0.167, alpha=1.777, lambda=0.921
+Trial 185 | F1=0.7178Â±0.0045 | trees=[2628, 2102, 1946] | lr=0.012, depth=8, mcw=4.72, subsample=0.944, colsample=0.926, gamma=0.263, alpha=1.785, lambda=0.942
+Trial 186 | F1=0.7176Â±0.0041 | trees=[2591, 2604, 2330] | lr=0.011, depth=8, mcw=4.99, subsample=0.950, colsample=0.901, gamma=0.185, alpha=1.753, lambda=1.259
+Trial 187 | F1=0.7168Â±0.0035 | trees=[2388, 2379, 2609] | lr=0.012, depth=8, mcw=5.44, subsample=0.928, colsample=0.918, gamma=0.393, alpha=1.705, lambda=0.812
+Trial 188 | F1=0.7162Â±0.0039 | trees=[2406, 1981, 1985] | lr=0.010, depth=8, mcw=4.52, subsample=0.788, colsample=0.929, gamma=0.103, alpha=1.664, lambda=1.475
+Trial 189 | F1=0.7180Â±0.0040 | trees=[2171, 2348, 1770] | lr=0.012, depth=8, mcw=4.85, subsample=0.999, colsample=0.907, gamma=0.043, alpha=1.809, lambda=1.101
+Trial 190 | F1=0.7173Â±0.0034 | trees=[1467, 1236, 1223] | lr=0.017, depth=9, mcw=5.30, subsample=0.960, colsample=0.937, gamma=0.168, alpha=1.588, lambda=0.857
+Trial 191 | F1=0.7176Â±0.0048 | trees=[2190, 2229, 1670] | lr=0.014, depth=8, mcw=6.83, subsample=0.987, colsample=0.972, gamma=0.146, alpha=1.857, lambda=0.721
+Trial 192 | F1=0.7178Â±0.0029 | trees=[1988, 1899, 1772] | lr=0.013, depth=8, mcw=5.16, subsample=0.967, colsample=0.956, gamma=0.078, alpha=1.766, lambda=0.941
+Trial 193 | F1=0.7176Â±0.0036 | trees=[2698, 1916, 1990] | lr=0.011, depth=8, mcw=4.64, subsample=0.976, colsample=0.869, gamma=0.114, alpha=1.888, lambda=1.010
+Trial 194 | F1=0.7179Â±0.0042 | trees=[2184, 1851, 1854] | lr=0.014, depth=8, mcw=5.80, subsample=0.992, colsample=0.987, gamma=0.034, alpha=1.830, lambda=1.147
+Trial 195 | F1=0.7176Â±0.0036 | trees=[1914, 1361, 1584] | lr=0.015, depth=8, mcw=4.35, subsample=0.939, colsample=0.882, gamma=0.213, alpha=1.522, lambda=0.217
+Trial 196 | F1=0.7171Â±0.0042 | trees=[2156, 1893, 1742] | lr=0.012, depth=8, mcw=4.90, subsample=0.982, colsample=0.964, gamma=0.061, alpha=1.164, lambda=0.142
+Trial 197 | F1=0.7180Â±0.0036 | trees=[2473, 2119, 2025] | lr=0.012, depth=8, mcw=5.46, subsample=0.961, colsample=0.895, gamma=0.127, alpha=1.726, lambda=1.056
+Trial 198 | F1=0.7159Â±0.0041 | trees=[2999, 2157, 2794] | lr=0.011, depth=8, mcw=5.06, subsample=0.987, colsample=0.948, gamma=0.268, alpha=1.792, lambda=0.307
+Trial 199 | F1=0.7169Â±0.0043 | trees=[1031, 1031, 862] | lr=0.026, depth=8, mcw=4.73, subsample=0.971, colsample=0.928, gamma=0.079, alpha=1.967, lambda=0.765
+Trial 200 | F1=0.7170Â±0.0036 | trees=[2635, 2448, 2544] | lr=0.013, depth=7, mcw=5.29, subsample=0.951, colsample=0.938, gamma=0.171, alpha=1.855, lambda=0.397
+Trial 201 | F1=0.7182Â±0.0039 | trees=[1975, 1863, 1708] | lr=0.012, depth=8, mcw=3.99, subsample=0.968, colsample=0.941, gamma=0.003, alpha=1.915, lambda=0.264
+Trial 202 | F1=0.7183Â±0.0041 | trees=[2292, 1800, 1833] | lr=0.012, depth=8, mcw=3.95, subsample=0.979, colsample=0.918, gamma=0.006, alpha=1.906, lambda=0.252
+Trial 203 | F1=0.7181Â±0.0040 | trees=[2413, 2246, 2055] | lr=0.011, depth=8, mcw=3.96, subsample=0.979, colsample=0.911, gamma=0.005, alpha=1.997, lambda=0.282
+Trial 204 | F1=0.7178Â±0.0045 | trees=[2305, 2188, 1845] | lr=0.012, depth=8, mcw=4.15, subsample=0.992, colsample=0.920, gamma=0.038, alpha=1.944, lambda=0.189
+Trial 205 | F1=0.7170Â±0.0037 | trees=[2498, 2370, 2111] | lr=0.011, depth=8, mcw=4.47, subsample=1.000, colsample=0.934, gamma=0.042, alpha=1.896, lambda=0.249
+Trial 206 | F1=0.7181Â±0.0045 | trees=[2255, 2154, 2070] | lr=0.012, depth=8, mcw=7.47, subsample=0.985, colsample=0.921, gamma=0.006, alpha=1.865, lambda=0.367
+Trial 207 | F1=0.7181Â±0.0028 | trees=[850, 626, 656] | lr=0.035, depth=8, mcw=4.27, subsample=0.963, colsample=0.902, gamma=0.087, alpha=1.821, lambda=0.323
+Trial 208 | F1=0.7180Â±0.0041 | trees=[2412, 2341, 2140] | lr=0.011, depth=8, mcw=5.59, subsample=0.977, colsample=0.891, gamma=0.042, alpha=1.756, lambda=0.450
+Trial 209 | F1=0.7170Â±0.0045 | trees=[1788, 1898, 1670] | lr=0.013, depth=8, mcw=3.98, subsample=0.957, colsample=0.946, gamma=0.094, alpha=1.686, lambda=0.873
+Trial 210 | F1=0.7178Â±0.0046 | trees=[2245, 2213, 1906] | lr=0.012, depth=8, mcw=4.89, subsample=0.990, colsample=0.915, gamma=0.038, alpha=1.916, lambda=0.651
+Trial 211 | F1=0.7179Â±0.0040 | trees=[1933, 1734, 1802] | lr=0.013, depth=8, mcw=2.45, subsample=0.970, colsample=0.958, gamma=0.129, alpha=1.921, lambda=0.197
+Trial 212 | F1=0.7182Â±0.0041 | trees=[2047, 1740, 1808] | lr=0.012, depth=8, mcw=3.66, subsample=0.972, colsample=0.939, gamma=0.005, alpha=1.883, lambda=0.156
+Trial 213 | F1=0.7180Â±0.0038 | trees=[2169, 1818, 1682] | lr=0.012, depth=8, mcw=3.78, subsample=0.981, colsample=0.930, gamma=0.002, alpha=1.862, lambda=0.258
+Trial 214 | F1=0.7169Â±0.0040 | trees=[1257, 1026, 1102] | lr=0.022, depth=8, mcw=5.13, subsample=0.972, colsample=0.940, gamma=0.061, alpha=1.806, lambda=0.149
+Trial 215 | F1=0.7175Â±0.0043 | trees=[2455, 2191, 1901] | lr=0.010, depth=8, mcw=4.18, subsample=0.964, colsample=0.925, gamma=0.036, alpha=1.776, lambda=0.231
+Trial 216 | F1=0.7179Â±0.0039 | trees=[2275, 2210, 1844] | lr=0.012, depth=8, mcw=3.96, subsample=0.985, colsample=0.950, gamma=0.097, alpha=1.959, lambda=0.319
+Trial 217 | F1=0.7175Â±0.0044 | trees=[1231, 1097, 1122] | lr=0.020, depth=8, mcw=4.60, subsample=0.955, colsample=0.942, gamma=0.001, alpha=1.863, lambda=1.194
+Trial 218 | F1=0.7155Â±0.0038 | trees=[2998, 2998, 3000] | lr=0.011, depth=6, mcw=5.37, subsample=0.993, colsample=0.936, gamma=0.067, alpha=1.729, lambda=0.946
+Trial 219 | F1=0.7159Â±0.0031 | trees=[2043, 1991, 1947] | lr=0.011, depth=8, mcw=6.98, subsample=0.830, colsample=0.918, gamma=0.065, alpha=1.626, lambda=0.082
+Trial 220 | F1=0.7026Â±0.0038 | trees=[1654, 1918, 1394] | lr=0.013, depth=8, mcw=4.77, subsample=0.980, colsample=0.908, gamma=1.411, alpha=1.824, lambda=0.380
+Trial 221 | F1=0.7081Â±0.0041 | trees=[2999, 1342, 2344] | lr=0.014, depth=8, mcw=4.36, subsample=0.972, colsample=0.973, gamma=0.977, alpha=1.912, lambda=0.079
+Trial 222 | F1=0.7134Â±0.0041 | trees=[1530, 1487, 1568] | lr=0.014, depth=8, mcw=4.99, subsample=0.659, colsample=0.953, gamma=0.157, alpha=1.892, lambda=0.124
+Trial 223 | F1=0.7180Â±0.0039 | trees=[2230, 2164, 1893] | lr=0.012, depth=8, mcw=3.74, subsample=0.966, colsample=0.964, gamma=0.116, alpha=1.939, lambda=0.181
+Trial 224 | F1=0.7176Â±0.0041 | trees=[2716, 2313, 2154] | lr=0.013, depth=8, mcw=3.85, subsample=0.975, colsample=0.883, gamma=0.199, alpha=1.888, lambda=0.261
+Trial 225 | F1=0.7173Â±0.0052 | trees=[1937, 1830, 1709] | lr=0.013, depth=8, mcw=3.67, subsample=0.985, colsample=0.983, gamma=0.022, alpha=1.788, lambda=0.822
+Trial 226 | F1=0.7179Â±0.0043 | trees=[2247, 2122, 2050] | lr=0.011, depth=8, mcw=5.18, subsample=0.949, colsample=0.930, gamma=0.135, alpha=1.838, lambda=0.316
+Trial 227 | F1=0.7182Â±0.0041 | trees=[2211, 2151, 1901] | lr=0.012, depth=8, mcw=5.51, subsample=0.993, colsample=0.952, gamma=0.000, alpha=1.978, lambda=1.006
+Trial 228 | F1=0.7171Â±0.0037 | trees=[2652, 2297, 2193] | lr=0.010, depth=8, mcw=5.75, subsample=0.994, colsample=0.946, gamma=0.002, alpha=1.967, lambda=1.008
+Trial 229 | F1=0.7176Â±0.0043 | trees=[2185, 2084, 1934] | lr=0.012, depth=8, mcw=5.56, subsample=0.989, colsample=0.935, gamma=0.000, alpha=1.998, lambda=1.065
+Trial 230 | F1=0.7177Â±0.0037 | trees=[2329, 2415, 2025] | lr=0.012, depth=8, mcw=5.42, subsample=0.997, colsample=0.954, gamma=0.057, alpha=1.713, lambda=0.917
+Trial 231 | F1=0.7184Â±0.0045 | trees=[2242, 2168, 2139] | lr=0.011, depth=8, mcw=5.17, subsample=0.981, colsample=0.961, gamma=0.092, alpha=1.929, lambda=0.723
+Trial 232 | F1=0.7172Â±0.0038 | trees=[2405, 2184, 2182] | lr=0.011, depth=8, mcw=5.25, subsample=0.981, colsample=0.959, gamma=0.041, alpha=0.534, lambda=0.720
+Trial 233 | F1=0.7185Â±0.0043 | trees=[2851, 2809, 2612] | lr=0.010, depth=8, mcw=5.00, subsample=0.988, colsample=0.943, gamma=0.090, alpha=1.938, lambda=1.621
+Trial 234 | F1=0.7177Â±0.0040 | trees=[2591, 2527, 2133] | lr=0.010, depth=8, mcw=4.99, subsample=0.978, colsample=0.943, gamma=0.101, alpha=1.941, lambda=0.573
+Trial 235 | F1=0.7187Â±0.0040 | trees=[2916, 2833, 2500] | lr=0.010, depth=8, mcw=4.79, subsample=0.985, colsample=0.925, gamma=0.082, alpha=1.878, lambda=1.858
+Trial 236 | F1=0.7156Â±0.0036 | trees=[2996, 2658, 2493] | lr=0.010, depth=8, mcw=4.79, subsample=0.999, colsample=0.926, gamma=0.101, alpha=1.928, lambda=1.859
+Trial 237 | F1=0.7179Â±0.0044 | trees=[2781, 2861, 2360] | lr=0.011, depth=8, mcw=5.02, subsample=0.983, colsample=0.901, gamma=0.171, alpha=1.757, lambda=1.729
+Trial 238 | F1=0.7165Â±0.0039 | trees=[2486, 2239, 2580] | lr=0.011, depth=8, mcw=4.59, subsample=0.987, colsample=0.892, gamma=0.080, alpha=0.252, lambda=1.534
+Trial 239 | F1=0.7158Â±0.0041 | trees=[2723, 2890, 2458] | lr=0.011, depth=8, mcw=5.19, subsample=0.987, colsample=0.921, gamma=0.222, alpha=1.843, lambda=1.691
+Trial 240 | F1=0.7175Â±0.0039 | trees=[2555, 2551, 2420] | lr=0.010, depth=8, mcw=4.83, subsample=0.962, colsample=0.907, gamma=0.138, alpha=1.808, lambda=1.885
+Trial 241 | F1=0.7173Â±0.0035 | trees=[2050, 2106, 1969] | lr=0.011, depth=8, mcw=1.28, subsample=0.974, colsample=0.936, gamma=0.054, alpha=1.869, lambda=1.386
+Trial 242 | F1=0.7177Â±0.0043 | trees=[2570, 2403, 2120] | lr=0.011, depth=8, mcw=5.04, subsample=0.970, colsample=0.942, gamma=0.069, alpha=1.887, lambda=1.637
+Trial 243 | F1=0.7182Â±0.0044 | trees=[2368, 2078, 1991] | lr=0.012, depth=8, mcw=4.50, subsample=0.978, colsample=0.929, gamma=0.036, alpha=1.925, lambda=0.668
+Trial 244 | F1=0.7183Â±0.0045 | trees=[2178, 1826, 2089] | lr=0.012, depth=8, mcw=5.29, subsample=0.988, colsample=0.914, gamma=0.102, alpha=1.883, lambda=0.801
+Trial 245 | F1=0.7184Â±0.0048 | trees=[2469, 2626, 2213] | lr=0.011, depth=8, mcw=5.31, subsample=0.991, colsample=0.920, gamma=0.104, alpha=1.839, lambda=1.810
+Trial 246 | F1=0.7174Â±0.0041 | trees=[2700, 2682, 2186] | lr=0.011, depth=8, mcw=5.30, subsample=0.990, colsample=0.921, gamma=0.117, alpha=1.784, lambda=1.803
+Trial 247 | F1=0.6952Â±0.0028 | trees=[3000, 3000, 3000] | lr=0.012, depth=4, mcw=5.42, subsample=0.983, colsample=0.912, gamma=0.189, alpha=1.833, lambda=1.994
+Trial 248 | F1=0.7157Â±0.0034 | trees=[2940, 2743, 2549] | lr=0.010, depth=8, mcw=5.20, subsample=0.999, colsample=0.922, gamma=0.154, alpha=1.666, lambda=1.960
+Trial 249 | F1=0.7178Â±0.0049 | trees=[2164, 2194, 2117] | lr=0.011, depth=8, mcw=4.96, subsample=0.988, colsample=0.912, gamma=0.101, alpha=1.737, lambda=0.772
+Trial 250 | F1=0.7170Â±0.0030 | trees=[2071, 2078, 1918] | lr=0.012, depth=8, mcw=5.69, subsample=0.904, colsample=0.904, gamma=0.115, alpha=1.589, lambda=1.827
+Trial 251 | F1=0.7129Â±0.0038 | trees=[2999, 2988, 3000] | lr=0.011, depth=8, mcw=5.35, subsample=0.979, colsample=0.918, gamma=0.553, alpha=1.480, lambda=1.640
+Trial 252 | F1=0.7169Â±0.0040 | trees=[1878, 1484, 1374] | lr=0.018, depth=8, mcw=5.91, subsample=0.992, colsample=0.900, gamma=0.167, alpha=1.803, lambda=1.742
+Trial 253 | F1=0.7175Â±0.0044 | trees=[2043, 2031, 1817] | lr=0.013, depth=8, mcw=4.77, subsample=0.960, colsample=0.891, gamma=0.087, alpha=1.536, lambda=1.583
+Trial 254 | F1=0.7092Â±0.0033 | trees=[3000, 3000, 3000] | lr=0.011, depth=5, mcw=4.96, subsample=0.967, colsample=0.928, gamma=0.207, alpha=1.846, lambda=0.719
+Trial 255 | F1=0.7173Â±0.0045 | trees=[2993, 3000, 2864] | lr=0.010, depth=7, mcw=5.12, subsample=0.983, colsample=0.881, gamma=0.132, alpha=1.757, lambda=0.794
+Trial 256 | F1=0.7165Â±0.0040 | trees=[2165, 2154, 2081] | lr=0.012, depth=8, mcw=5.31, subsample=0.978, colsample=0.915, gamma=0.058, alpha=0.856, lambda=1.912
+Trial 257 | F1=0.7165Â±0.0037 | trees=[2126, 2318, 1681] | lr=0.011, depth=9, mcw=4.64, subsample=0.994, colsample=0.931, gamma=0.092, alpha=1.940, lambda=0.431
+Trial 258 | F1=0.7176Â±0.0042 | trees=[2605, 2670, 2144] | lr=0.012, depth=8, mcw=7.92, subsample=0.987, colsample=0.901, gamma=0.157, alpha=1.698, lambda=0.819
+Trial 259 | F1=0.7141Â±0.0036 | trees=[2910, 2395, 2356] | lr=0.011, depth=8, mcw=5.62, subsample=0.967, colsample=0.923, gamma=0.471, alpha=1.887, lambda=0.668
+Trial 260 | F1=0.7171Â±0.0040 | trees=[2302, 2045, 1872] | lr=0.013, depth=8, mcw=5.12, subsample=0.954, colsample=0.912, gamma=0.254, alpha=1.811, lambda=0.340
+Trial 261 | F1=0.7176Â±0.0044 | trees=[2172, 2359, 1891] | lr=0.012, depth=8, mcw=4.83, subsample=1.000, colsample=0.892, gamma=0.069, alpha=1.871, lambda=0.743
+Trial 262 | F1=0.7166Â±0.0035 | trees=[2283, 2210, 2147] | lr=0.011, depth=8, mcw=5.47, subsample=0.942, colsample=0.611, gamma=0.042, alpha=1.648, lambda=1.135
+Trial 263 | F1=0.7172Â±0.0042 | trees=[980, 665, 753] | lr=0.030, depth=9, mcw=5.20, subsample=0.976, colsample=0.769, gamma=0.128, alpha=1.914, lambda=0.280
+Trial 264 | F1=0.7169Â±0.0042 | trees=[2712, 2169, 2141] | lr=0.012, depth=8, mcw=1.97, subsample=0.983, colsample=0.991, gamma=0.195, alpha=1.761, lambda=2.051
+Trial 265 | F1=0.7102Â±0.0042 | trees=[1982, 1754, 1839] | lr=0.016, depth=8, mcw=4.91, subsample=0.971, colsample=0.934, gamma=0.790, alpha=1.947, lambda=0.878
+Trial 266 | F1=0.7176Â±0.0044 | trees=[1378, 1245, 1174] | lr=0.019, depth=8, mcw=4.73, subsample=0.990, colsample=0.874, gamma=0.086, alpha=1.719, lambda=0.599
+Trial 267 | F1=0.7178Â±0.0049 | trees=[2285, 2127, 2168] | lr=0.010, depth=8, mcw=4.41, subsample=0.966, colsample=0.948, gamma=0.038, alpha=1.845, lambda=0.389
+Trial 268 | F1=0.7163Â±0.0040 | trees=[2993, 3000, 3000] | lr=0.012, depth=6, mcw=5.08, subsample=0.983, colsample=0.907, gamma=0.130, alpha=1.787, lambda=0.243
+Trial 269 | F1=0.7181Â±0.0038 | trees=[2591, 2420, 2221] | lr=0.014, depth=7, mcw=5.36, subsample=0.957, colsample=0.969, gamma=0.084, alpha=1.993, lambda=0.476
+Trial 270 | F1=0.7163Â±0.0039 | trees=[2902, 2843, 2765] | lr=0.010, depth=8, mcw=5.62, subsample=0.993, colsample=0.917, gamma=0.170, alpha=1.891, lambda=0.770
+Trial 271 | F1=0.7172Â±0.0042 | trees=[2378, 2907, 2681] | lr=0.011, depth=8, mcw=6.02, subsample=0.975, colsample=0.897, gamma=0.221, alpha=1.570, lambda=1.483
+Trial 272 | F1=0.7173Â±0.0029 | trees=[234, 180, 171] | lr=0.126, depth=8, mcw=4.93, subsample=0.985, colsample=0.933, gamma=0.040, alpha=1.827, lambda=0.366
+Trial 273 | F1=0.7178Â±0.0041 | trees=[2305, 1993, 1940] | lr=0.012, depth=8, mcw=4.58, subsample=0.945, colsample=0.977, gamma=0.111, alpha=1.685, lambda=0.513
+Trial 274 | F1=0.7182Â±0.0043 | trees=[1884, 1902, 1820] | lr=0.013, depth=8, mcw=4.19, subsample=0.974, colsample=0.924, gamma=0.070, alpha=1.608, lambda=0.303
+Trial 275 | F1=0.7177Â±0.0037 | trees=[1315, 1310, 1269] | lr=0.013, depth=10, mcw=5.28, subsample=0.964, colsample=0.923, gamma=0.038, alpha=1.956, lambda=0.217
+Trial 276 | F1=0.7173Â±0.0043 | trees=[1737, 1624, 1645] | lr=0.014, depth=8, mcw=4.29, subsample=0.971, colsample=0.883, gamma=0.073, alpha=1.434, lambda=0.704
+Trial 277 | F1=0.7173Â±0.0038 | trees=[1741, 1458, 1533] | lr=0.015, depth=8, mcw=4.11, subsample=0.953, colsample=0.930, gamma=0.034, alpha=1.865, lambda=1.771
+Trial 278 | F1=0.7175Â±0.0039 | trees=[513, 565, 514] | lr=0.052, depth=8, mcw=5.50, subsample=0.977, colsample=0.941, gamma=0.074, alpha=1.907, lambda=1.281
+Trial 279 | F1=0.7174Â±0.0039 | trees=[832, 800, 788] | lr=0.024, depth=9, mcw=5.10, subsample=0.960, colsample=0.915, gamma=0.000, alpha=1.780, lambda=1.088
+Trial 280 | F1=0.7118Â±0.0035 | trees=[1765, 1610, 1733] | lr=0.013, depth=8, mcw=5.30, subsample=0.999, colsample=0.808, gamma=0.302, alpha=1.724, lambda=0.288
+Trial 281 | F1=0.7182Â±0.0042 | trees=[2512, 2544, 2155] | lr=0.011, depth=8, mcw=4.04, subsample=0.971, colsample=0.925, gamma=0.153, alpha=1.855, lambda=0.850
+Trial 282 | F1=0.7178Â±0.0045 | trees=[2585, 2467, 2193] | lr=0.011, depth=8, mcw=5.79, subsample=0.967, colsample=0.924, gamma=0.176, alpha=1.918, lambda=0.863
+Trial 283 | F1=0.7172Â±0.0040 | trees=[2991, 2757, 2721] | lr=0.010, depth=8, mcw=4.19, subsample=0.976, colsample=0.907, gamma=0.246, alpha=1.822, lambda=0.978
+Trial 284 | F1=0.7177Â±0.0031 | trees=[2524, 2124, 2119] | lr=0.011, depth=8, mcw=5.08, subsample=0.960, colsample=0.915, gamma=0.147, alpha=1.758, lambda=0.929
+Trial 285 | F1=0.7163Â±0.0041 | trees=[2656, 2613, 2329] | lr=0.012, depth=7, mcw=4.78, subsample=0.878, colsample=0.898, gamma=0.190, alpha=1.969, lambda=0.850
+Trial 286 | F1=0.7182Â±0.0040 | trees=[2593, 2279, 2228] | lr=0.011, depth=8, mcw=5.52, subsample=0.970, colsample=0.925, gamma=0.114, alpha=1.512, lambda=1.187
+Trial 287 | F1=0.7180Â±0.0041 | trees=[2737, 2205, 2168] | lr=0.011, depth=8, mcw=5.39, subsample=0.979, colsample=0.925, gamma=0.142, alpha=1.596, lambda=1.200
+Trial 288 | F1=0.7156Â±0.0037 | trees=[1811, 1704, 1812] | lr=0.011, depth=9, mcw=5.60, subsample=0.752, colsample=0.910, gamma=0.204, alpha=1.461, lambda=1.076
+Trial 289 | F1=0.7171Â±0.0041 | trees=[2260, 2247, 1991] | lr=0.011, depth=8, mcw=5.75, subsample=0.948, colsample=0.917, gamma=0.118, alpha=1.371, lambda=1.172
+Trial 290 | F1=0.7178Â±0.0040 | trees=[2774, 2185, 2182] | lr=0.011, depth=8, mcw=5.48, subsample=0.971, colsample=0.931, gamma=0.152, alpha=1.510, lambda=1.117
+Trial 291 | F1=0.7168Â±0.0044 | trees=[2167, 2583, 2430] | lr=0.011, depth=8, mcw=5.22, subsample=0.983, colsample=0.887, gamma=0.232, alpha=1.508, lambda=1.581
+Trial 292 | F1=0.7174Â±0.0037 | trees=[2735, 2442, 2269] | lr=0.010, depth=8, mcw=5.92, subsample=0.956, colsample=0.906, gamma=0.105, alpha=1.626, lambda=1.839
+Trial 293 | F1=0.6998Â±0.0037 | trees=[2498, 2110, 2262] | lr=0.012, depth=8, mcw=4.92, subsample=0.973, colsample=0.924, gamma=1.862, alpha=1.680, lambda=1.341
+Trial 294 | F1=0.7190Â±0.0041 | trees=[2594, 2300, 2110] | lr=0.011, depth=8, mcw=5.17, subsample=0.988, colsample=0.917, gamma=0.086, alpha=1.546, lambda=1.032
+Trial 295 | F1=0.6684Â±0.0022 | trees=[3000, 3000, 3000] | lr=0.011, depth=3, mcw=5.11, subsample=0.992, colsample=0.897, gamma=0.075, alpha=0.719, lambda=1.018
+Trial 296 | F1=0.7145Â±0.0044 | trees=[2025, 1668, 1675] | lr=0.013, depth=8, mcw=4.95, subsample=0.729, colsample=0.846, gamma=0.275, alpha=1.557, lambda=0.907
+Trial 297 | F1=0.7168Â±0.0041 | trees=[2505, 2250, 2141] | lr=0.012, depth=8, mcw=5.26, subsample=0.985, colsample=0.796, gamma=0.175, alpha=1.549, lambda=0.800
+Trial 298 | F1=0.6994Â±0.0030 | trees=[960, 762, 892] | lr=0.021, depth=8, mcw=4.68, subsample=0.992, colsample=0.913, gamma=1.655, alpha=1.797, lambda=0.986
+Trial 299 | F1=0.7095Â±0.0034 | trees=[2995, 2979, 2992] | lr=0.011, depth=7, mcw=5.08, subsample=0.981, colsample=0.711, gamma=0.622, alpha=1.732, lambda=0.841
+Trial 300 | F1=0.7172Â±0.0035 | trees=[1963, 1965, 1800] | lr=0.012, depth=8, mcw=4.88, subsample=0.937, colsample=0.864, gamma=0.072, alpha=1.297, lambda=1.047
+Trial 301 | F1=0.7175Â±0.0046 | trees=[2033, 1943, 1805] | lr=0.013, depth=9, mcw=5.38, subsample=0.988, colsample=0.904, gamma=0.143, alpha=1.851, lambda=0.400
+Trial 302 | F1=0.7172Â±0.0041 | trees=[2589, 2354, 2265] | lr=0.010, depth=8, mcw=4.43, subsample=0.980, colsample=0.917, gamma=0.041, alpha=1.647, lambda=1.702
+Trial 303 | F1=0.7182Â±0.0045 | trees=[2628, 2820, 2118] | lr=0.011, depth=8, mcw=6.16, subsample=0.994, colsample=0.879, gamma=0.107, alpha=1.766, lambda=0.648
+Trial 304 | F1=0.7170Â±0.0044 | trees=[2504, 2400, 1774] | lr=0.012, depth=8, mcw=5.97, subsample=0.999, colsample=0.876, gamma=0.097, alpha=1.739, lambda=0.632
+Trial 305 | F1=0.7177Â±0.0037 | trees=[3000, 2998, 2746] | lr=0.012, depth=7, mcw=6.16, subsample=0.993, colsample=0.869, gamma=0.067, alpha=1.699, lambda=0.538
+Trial 306 | F1=0.7186Â±0.0041 | trees=[2503, 2056, 2148] | lr=0.011, depth=8, mcw=5.67, subsample=0.988, colsample=0.888, gamma=0.035, alpha=1.772, lambda=0.668
+Trial 307 | F1=0.7185Â±0.0041 | trees=[2398, 2150, 2136] | lr=0.011, depth=8, mcw=5.69, subsample=0.985, colsample=0.889, gamma=0.034, alpha=1.608, lambda=0.202
+Trial 308 | F1=0.7188Â±0.0036 | trees=[1062, 851, 787] | lr=0.027, depth=8, mcw=5.68, subsample=0.984, colsample=0.892, gamma=0.030, alpha=1.593, lambda=0.179
+Trial 309 | F1=0.7179Â±0.0038 | trees=[696, 774, 616] | lr=0.034, depth=8, mcw=5.70, subsample=0.985, colsample=0.887, gamma=0.026, alpha=1.599, lambda=0.222
+Trial 310 | F1=0.7190Â±0.0041 | trees=[1074, 922, 875] | lr=0.026, depth=8, mcw=5.64, subsample=0.990, colsample=0.890, gamma=0.041, alpha=1.554, lambda=0.197
+Trial 311 | F1=0.7187Â±0.0034 | trees=[975, 1082, 987] | lr=0.026, depth=8, mcw=5.70, subsample=0.986, colsample=0.888, gamma=0.036, alpha=1.563, lambda=2.145
+Trial 312 | F1=0.7171Â±0.0051 | trees=[933, 884, 860] | lr=0.025, depth=8, mcw=5.64, subsample=0.988, colsample=0.886, gamma=0.002, alpha=1.533, lambda=0.167
+Trial 313 | F1=0.7188Â±0.0040 | trees=[961, 891, 928] | lr=0.028, depth=8, mcw=5.64, subsample=0.993, colsample=0.880, gamma=0.042, alpha=1.561, lambda=2.140
+Trial 314 | F1=0.7143Â±0.0024 | trees=[919, 944, 824] | lr=0.026, depth=8, mcw=5.86, subsample=0.694, colsample=0.880, gamma=0.041, alpha=1.574, lambda=2.209
+Trial 315 | F1=0.7179Â±0.0040 | trees=[919, 760, 719] | lr=0.027, depth=9, mcw=5.74, subsample=0.998, colsample=0.889, gamma=0.048, alpha=1.468, lambda=2.129
+EXIT 143

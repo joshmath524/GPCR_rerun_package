@@ -1,0 +1,16 @@
+label,chain_id,residue_id,residue_name,residue_full_name,distance_to_ligand,secondary_structure,physicochemical_type,charge,polarity,size,aromatic,sulfur,hydroxyl,amide,acidic,basic,binding_potential,distance_class,shell,conservation_level,conservation_score,is_conserved_position,gpcr_position
+TYR238D (Tyrosine),D,238,TYR,Tyrosine,2.6,Coil,polar,neutral,polar,large,True,False,True,False,False,False,high_aromatic,direct_contact,first,variable,3,False,TM5_140
+TYR165D (Tyrosine),D,165,TYR,Tyrosine,2.89,Coil,polar,neutral,polar,large,True,False,True,False,False,False,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM6_180
+LEU183D (Leucine),D,183,LEU,Leucine,3.47,Coil,hydrophobic,neutral,nonpolar,large,False,False,False,False,False,False,high_van_der_waals,direct_contact,first,variable,3,False,TM6_179
+ARG255D (Arginine),D,255,ARG,Arginine,3.51,Coil,basic,positive,polar,large,False,False,False,False,False,True,high_ionic,direct_contact,first,variable,3,False,TM6_176
+TYR90D (Tyrosine),D,90,TYR,Tyrosine,3.74,Coil,polar,neutral,polar,large,True,False,True,False,False,False,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM6_165
+VAL144D (Valine),D,144,VAL,Valine,3.76,Coil,hydrophobic,neutral,nonpolar,medium,False,False,False,False,False,False,high_van_der_waals,direct_contact,first,variable,3,False,TM5_143
+ILE143D (Isoleucine),D,143,ILE,Isoleucine,3.95,Coil,hydrophobic,neutral,nonpolar,large,False,False,False,False,False,False,high_van_der_waals,direct_contact,first,variable,3,False,TM5_144
+ARG180D (Arginine),D,180,ARG,Arginine,4.06,Coil,basic,positive,polar,large,False,False,False,False,False,True,medium_interaction,secondary_shell,second,moderately_conserved,5,False,TM4_94
+CYS141D (Cysteine),D,141,CYS,Cysteine,4.18,Coil,polar,neutral,polar,small,False,True,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM3_90
+HIS242D (Histidine),D,242,HIS,Histidine,4.4,Coil,basic,positive,polar,medium,True,False,False,False,False,True,medium_interaction,secondary_shell,second,moderately_conserved,5,False,TM3_86
+TYR94D (Tyrosine),D,94,TYR,Tyrosine,4.69,Coil,polar,neutral,polar,large,True,False,True,False,False,False,medium_interaction,secondary_shell,second,variable,3,False,TM7_183
+VAL179D (Valine),D,179,VAL,Valine,5.38,Coil,hydrophobic,neutral,nonpolar,medium,False,False,False,False,False,False,low_interaction,secondary_shell,second,variable,3,False,TM8_242
+HIS140D (Histidine),D,140,HIS,Histidine,5.74,Coil,basic,positive,polar,medium,True,False,False,False,False,True,medium_interaction,secondary_shell,second,moderately_conserved,5,False,TM8_255
+GLY86D (Glycine),D,86,GLY,Glycine,5.76,Coil,hydrophobic,neutral,nonpolar,small,False,False,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,ICL3_238
+VAL176D (Valine),D,176,VAL,Valine,5.95,Coil,hydrophobic,neutral,nonpolar,medium,False,False,False,False,False,False,low_interaction,secondary_shell,second,conserved,7,False,TM5_141

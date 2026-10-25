@@ -1,0 +1,318 @@
+===== START (cleaned labels, scaffold) Fri Oct 16 09:27:44 EDT 2026 =====
+================================================================================
+XGBOOST SCAFFOLD SPLIT EVALUATION
+================================================================================
+
+Scaffold-based split (no scaffold overlap between train and test)
+10 seeds × 5-fold CV on training portion + test set evaluation
+================================================================================
+
+[STEP 1] Using fixed best-trial hyperparameters (trial 111)...
+--------------------------------------------------------------------------------
+  [OK] Hyperparameters set (n_estimators=1843)
+
+[STEP 2] Loading data and preparing features...
+--------------------------------------------------------------------------------
+
+Aggregating receptor features...
+  Processing receptor 1/68: 5-HT1A... [OK]
+  Processing receptor 2/68: 5-HT1B... [OK]
+  Processing receptor 3/68: 5-HT1D... [OK]
+  Processing receptor 4/68: 5-HT1F... [OK]
+  Processing receptor 5/68: 5-HT2A... [OK]
+  Processing receptor 6/68: 5-HT2B... [OK]
+  Processing receptor 7/68: 5-HT2C... [OK]
+  Processing receptor 8/68: 5-HT4... [OK]
+  Processing receptor 9/68: 5-HT5A... [OK]
+  Processing receptor 10/68: 5-HT6... [OK]
+  Processing receptor 11/68: 5-HT7... [OK]
+  Processing receptor 12/68: A1... [OK]
+  Processing receptor 13/68: A2A... [OK]
+  Processing receptor 14/68: A2B... [OK]
+  Processing receptor 15/68: A3... [OK]
+  Processing receptor 16/68: alpha1A... [OK]
+  Processing receptor 17/68: alpha1B... [OK]
+  Processing receptor 18/68: alpha2C... [OK]
+  Processing receptor 19/68: beta1... [OK]
+  Processing receptor 20/68: beta2... [OK]
+  Processing receptor 21/68: beta3... [OK]
+  Processing receptor 22/68: BLT1... [OK]
+  Processing receptor 23/68: CB1... [OK]
+  Processing receptor 24/68: CB2... [OK]
+  Processing receptor 25/68: CysLT1... [OK]
+  Processing receptor 26/68: CysLT2... [OK]
+  Processing receptor 27/68: D1... [OK]
+  Processing receptor 28/68: D2... [OK]
+  Processing receptor 29/68: D3... [OK]
+  Processing receptor 30/68: D4... [OK]
+  Processing receptor 31/68: D5... [OK]
+  Processing receptor 32/68: EP2... [OK]
+  Processing receptor 33/68: EP3... [OK]
+  Processing receptor 34/68: EP4... [OK]
+  Processing receptor 35/68: FFA1... [OK]
+  Processing receptor 36/68: FFA2... [OK]
+  Processing receptor 37/68: FFA3... [OK]
+  Processing receptor 38/68: FFA4... [OK]
+  Processing receptor 39/68: FP... [OK]
+  Processing receptor 40/68: GPBA... [OK]
+  Processing receptor 41/68: GPR119... [OK]
+  Processing receptor 42/68: GPR139... [OK]
+  Processing receptor 43/68: GPR174... [OK]
+  Processing receptor 44/68: GPR35... [OK]
+  Processing receptor 45/68: H1... [OK]
+  Processing receptor 46/68: H2... [OK]
+  Processing receptor 47/68: H3... [OK]
+  Processing receptor 48/68: H4... [OK]
+  Processing receptor 49/68: HCA2... [OK]
+  Processing receptor 50/68: IP... [OK]
+  Processing receptor 51/68: LPA1... [OK]
+  Processing receptor 52/68: M1... [OK]
+  Processing receptor 53/68: M2... [OK]
+  Processing receptor 54/68: M3... [OK]
+  Processing receptor 55/68: M4... [OK]
+  Processing receptor 56/68: M5... [OK]
+  Processing receptor 57/68: MT1... [OK]
+  Processing receptor 58/68: MT2... [OK]
+  Processing receptor 59/68: P2Y1... [OK]
+  Processing receptor 60/68: P2Y12... [OK]
+  Processing receptor 61/68: PAF... [OK]
+  Processing receptor 62/68: S1P1... [OK]
+  Processing receptor 63/68: S1P2... [OK]
+  Processing receptor 64/68: S1P3... [OK]
+  Processing receptor 65/68: S1P5... [OK]
+  Processing receptor 66/68: succinate... [OK]
+  Processing receptor 67/68: TA1... [OK]
+  Processing receptor 68/68: TP... [OK]
+  [OK] 68 receptors with features
+
+Loading ligand data from individual receptor files (_NEW only, validated)...
+    [WARNING] 5-HT1A_antagonist_enriched_NEW.xlsx: repeat columns differ from the original for 4 descriptors (Asphericity, Eccentricity, InertialShapeFactor, RadiusOfGyration); keeping the original
+  [1/68] 5-HT1A: agonist=394, antagonist=158, inactive=1038
+  [2/68] 5-HT1B: agonist=69, antagonist=53, inactive=69
+  [3/68] 5-HT1D: agonist=39, antagonist=58, inactive=6
+  [4/68] 5-HT1F: agonist=14, antagonist=no _NEW file, inactive=13
+  [5/68] 5-HT2A: agonist=433, antagonist=359, inactive=688
+  [6/68] 5-HT2B: agonist=268, antagonist=138, inactive=570
+  [7/68] 5-HT2C: agonist=676, antagonist=104, inactive=861
+  [8/68] 5-HT4: agonist=17, antagonist=1, inactive=40
+  [9/68] 5-HT5A: agonist=2, antagonist=9, inactive=16
+  [10/68] 5-HT6: agonist=35, antagonist=279, inactive=216
+  [11/68] 5-HT7: agonist=27, antagonist=92, inactive=159
+  [12/68] A1: agonist=203, antagonist=241, inactive=364
+  [13/68] A2A: agonist=225, antagonist=616, inactive=385
+  [14/68] A2B: agonist=220, antagonist=551, inactive=1482
+  [15/68] A3: agonist=136, antagonist=336, inactive=380
+  [16/68] alpha1A: agonist=1, antagonist=39, inactive=13
+  [17/68] alpha1B: agonist=1, antagonist=33, inactive=30
+  [18/68] alpha2C: agonist=36, antagonist=no _NEW file, inactive=36
+  [19/68] beta1: agonist=242, antagonist=11, inactive=191
+  [20/68] beta2: agonist=84, antagonist=11, inactive=133
+  [21/68] beta3: agonist=91, antagonist=11, inactive=24
+  [22/68] BLT1: agonist=no _NEW file, antagonist=24, inactive=1
+  [23/68] CB1: agonist=856, antagonist=680, inactive=1430
+  [24/68] CB2: agonist=1790, antagonist=124, inactive=1991
+  [25/68] CysLT1: agonist=3, antagonist=180, inactive=28
+  [26/68] CysLT2: agonist=3, antagonist=68, inactive=38
+  [27/68] D1: agonist=108, antagonist=59, inactive=195
+  [28/68] D2: agonist=461, antagonist=416, inactive=1366
+  [29/68] D3: agonist=233, antagonist=414, inactive=403
+  [30/68] D4: agonist=125, antagonist=81, inactive=177
+  [31/68] D5: agonist=1, antagonist=5, inactive=22
+  [32/68] EP2: agonist=171, antagonist=81, inactive=276
+  [33/68] EP3: agonist=52, antagonist=230, inactive=264
+  [34/68] EP4: agonist=65, antagonist=282, inactive=338
+  [35/68] FFA1: agonist=240, antagonist=no _NEW file, inactive=399
+  [36/68] FFA2: agonist=64, antagonist=73, inactive=141
+  [37/68] FFA3: agonist=45, antagonist=no _NEW file, inactive=74
+  [38/68] FFA4: agonist=54, antagonist=1, inactive=97
+  [39/68] FP: agonist=17, antagonist=4, inactive=199
+  [40/68] GPBA: agonist=30, antagonist=no _NEW file, inactive=14
+  [41/68] GPR119: agonist=206, antagonist=no _NEW file, inactive=91
+  [42/68] GPR139: agonist=22, antagonist=no _NEW file, inactive=23
+  [43/68] GPR174: agonist=50, antagonist=7, inactive=50
+  [44/68] GPR35: agonist=56, antagonist=36, inactive=58
+  [45/68] H1: agonist=7, antagonist=251, inactive=172
+  [46/68] H2: agonist=84, antagonist=no _NEW file, inactive=225
+  [47/68] H3: agonist=229, antagonist=784, inactive=371
+  [48/68] H4: agonist=134, antagonist=131, inactive=389
+  [49/68] HCA2: agonist=33, antagonist=no _NEW file, inactive=47
+  [50/68] IP: agonist=133, antagonist=25, inactive=229
+  [51/68] LPA1: agonist=23, antagonist=126, inactive=180
+  [52/68] M1: agonist=275, antagonist=313, inactive=547
+  [53/68] M2: agonist=60, antagonist=208, inactive=266
+  [54/68] M3: agonist=32, antagonist=332, inactive=257
+  [55/68] M4: agonist=62, antagonist=86, inactive=235
+  [56/68] M5: agonist=44, antagonist=74, inactive=202
+  [57/68] MT1: agonist=130, antagonist=42, inactive=211
+  [58/68] MT2: agonist=124, antagonist=40, inactive=223
+  [59/68] P2Y1: agonist=359, antagonist=479, inactive=603
+  [60/68] P2Y12: agonist=1, antagonist=287, inactive=108
+  [61/68] PAF: agonist=no _NEW file, antagonist=20, inactive=3
+  [62/68] S1P1: agonist=1013, antagonist=36, inactive=408
+  [63/68] S1P2: agonist=34, antagonist=102, inactive=116
+  [64/68] S1P3: agonist=460, antagonist=19, inactive=512
+  [65/68] S1P5: agonist=95, antagonist=23, inactive=29
+  [66/68] succinate: agonist=23, antagonist=13, inactive=1
+  [67/68] TA1: agonist=18, antagonist=8, inactive=19
+  [68/68] TP: agonist=6, antagonist=150, inactive=200
+  [CLEAN] Removed 15,065 rows where the same compound at the same receptor has conflicting labels (7,115 pairs) and 598 same-label duplicates; 24,937 rows remain
+  [OK] 24,937 compounds from 193 _NEW files (agonist=5,327, antagonist=7,610, inactive=12,000)
+  [OK] Data manifest saved: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/xgb_scaffold_eval_data_manifest.csv
+  [OK] Removed rows listed in: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/xgb_scaffold_eval_removed_label_conflicts.csv
+  [OK] 24,937 total samples
+  [OK] 1636 ligand descriptor columns
+  [OK] 31 receptor feature columns
+  [OK] 14 interaction terms
+  [OK] Total features (numeric only): 1679
+  [OK] Classes: ['agonist', 'antagonist', 'inactive'] (n=3)
+  [OK] Total samples: 24,937
+
+[STEP 3] Computing Bemis–Murcko scaffolds (once for all samples)...
+--------------------------------------------------------------------------------
+  Progress: 5,000/24,937 (20.1%)
+  Progress: 10,000/24,937 (40.1%)
+  Progress: 15,000/24,937 (60.2%)
+  Progress: 20,000/24,937 (80.2%)
+  Progress: 24,937/24,937 (100.0%)
+  [OK] Unique scaffolds: 7,132 (split will be seed-dependent, 80/20 by samples)
+
+[STEP 5] Evaluation Loop (10 seeds × scaffold-leak-free CV + test set)...
+--------------------------------------------------------------------------------
+
+Seed 1/10 (seed=42)...
+  Split: train 19,950 (80.0%), test 4,987 (20.0%)
+    Fold 1/5 - train 15,961, val 3,989... F1=0.8058, AUC=0.9345
+    Fold 2/5 - train 15,959, val 3,991... F1=0.7992, AUC=0.9428
+    Fold 3/5 - train 15,959, val 3,991... F1=0.7986, AUC=0.9381
+    Fold 4/5 - train 15,959, val 3,991... F1=0.7969, AUC=0.9337
+    Fold 5/5 - train 15,962, val 3,988... F1=0.8183, AUC=0.9465
+  CV Results - F1: 0.8038, AUC: 0.9391
+  Final test - train 19,950, test 4,987... F1=0.8292, AUC=0.9476
+
+Seed 2/10 (seed=43)...
+  Split: train 20,024 (80.3%), test 4,913 (19.7%)
+    Fold 1/5 - train 16,021, val 4,003... F1=0.8098, AUC=0.9447
+    Fold 2/5 - train 16,016, val 4,008... F1=0.8109, AUC=0.9365
+    Fold 3/5 - train 16,021, val 4,003... F1=0.7776, AUC=0.9299
+    Fold 4/5 - train 16,019, val 4,005... F1=0.8102, AUC=0.9377
+    Fold 5/5 - train 16,019, val 4,005... F1=0.8237, AUC=0.9500
+  CV Results - F1: 0.8065, AUC: 0.9398
+  Final test - train 20,024, test 4,913... F1=0.8189, AUC=0.9498
+
+Seed 3/10 (seed=44)...
+  Split: train 19,950 (80.0%), test 4,987 (20.0%)
+    Fold 1/5 - train 15,960, val 3,990... F1=0.8024, AUC=0.9455
+    Fold 2/5 - train 15,960, val 3,990... F1=0.8235, AUC=0.9458
+    Fold 3/5 - train 15,961, val 3,989... F1=0.7928, AUC=0.9300
+    Fold 4/5 - train 15,958, val 3,992... F1=0.8127, AUC=0.9389
+    Fold 5/5 - train 15,961, val 3,989... F1=0.7736, AUC=0.9252
+  CV Results - F1: 0.8010, AUC: 0.9371
+  Final test - train 19,950, test 4,987... F1=0.8186, AUC=0.9483
+
+Seed 4/10 (seed=45)...
+  Split: train 19,965 (80.1%), test 4,972 (19.9%)
+    Fold 1/5 - train 15,974, val 3,991... F1=0.8088, AUC=0.9451
+    Fold 2/5 - train 15,971, val 3,994... F1=0.7944, AUC=0.9378
+    Fold 3/5 - train 15,972, val 3,993... F1=0.8232, AUC=0.9460
+    Fold 4/5 - train 15,972, val 3,993... F1=0.7912, AUC=0.9331
+    Fold 5/5 - train 15,971, val 3,994... F1=0.7999, AUC=0.9386
+  CV Results - F1: 0.8035, AUC: 0.9401
+  Final test - train 19,965, test 4,972... F1=0.8172, AUC=0.9450
+
+Seed 5/10 (seed=46)...
+  Split: train 19,949 (80.0%), test 4,988 (20.0%)
+    Fold 1/5 - train 15,958, val 3,991... F1=0.8139, AUC=0.9487
+    Fold 2/5 - train 15,961, val 3,988... F1=0.7837, AUC=0.9277
+    Fold 3/5 - train 15,959, val 3,990... F1=0.7905, AUC=0.9358
+    Fold 4/5 - train 15,959, val 3,990... F1=0.8139, AUC=0.9435
+    Fold 5/5 - train 15,959, val 3,990... F1=0.8155, AUC=0.9421
+  CV Results - F1: 0.8035, AUC: 0.9396
+  Final test - train 19,949, test 4,988... F1=0.8223, AUC=0.9488
+
+Seed 6/10 (seed=47)...
+  Split: train 19,984 (80.1%), test 4,953 (19.9%)
+    Fold 1/5 - train 15,988, val 3,996... F1=0.8136, AUC=0.9416
+    Fold 2/5 - train 15,988, val 3,996... F1=0.8131, AUC=0.9443
+    Fold 3/5 - train 15,986, val 3,998... F1=0.7995, AUC=0.9345
+    Fold 4/5 - train 15,986, val 3,998... F1=0.7984, AUC=0.9395
+    Fold 5/5 - train 15,988, val 3,996... F1=0.8233, AUC=0.9452
+  CV Results - F1: 0.8096, AUC: 0.9410
+  Final test - train 19,984, test 4,953... F1=0.7933, AUC=0.9357
+
+Seed 7/10 (seed=48)...
+  Split: train 19,955 (80.0%), test 4,982 (20.0%)
+    Fold 1/5 - train 15,965, val 3,990... F1=0.8194, AUC=0.9444
+    Fold 2/5 - train 15,963, val 3,992... F1=0.7962, AUC=0.9278
+    Fold 3/5 - train 15,965, val 3,990... F1=0.7940, AUC=0.9369
+    Fold 4/5 - train 15,962, val 3,993... F1=0.8043, AUC=0.9364
+    Fold 5/5 - train 15,965, val 3,990... F1=0.7900, AUC=0.9328
+  CV Results - F1: 0.8008, AUC: 0.9356
+  Final test - train 19,955, test 4,982... F1=0.8379, AUC=0.9499
+
+Seed 8/10 (seed=49)...
+  Split: train 19,955 (80.0%), test 4,982 (20.0%)
+    Fold 1/5 - train 15,966, val 3,989... F1=0.8062, AUC=0.9426
+    Fold 2/5 - train 15,964, val 3,991... F1=0.8213, AUC=0.9500
+    Fold 3/5 - train 15,964, val 3,991... F1=0.7860, AUC=0.9306
+    Fold 4/5 - train 15,962, val 3,993... F1=0.8300, AUC=0.9467
+    Fold 5/5 - train 15,964, val 3,991... F1=0.7946, AUC=0.9316
+  CV Results - F1: 0.8076, AUC: 0.9403
+  Final test - train 19,955, test 4,982... F1=0.8194, AUC=0.9484
+
+Seed 9/10 (seed=50)...
+  Split: train 19,957 (80.0%), test 4,980 (20.0%)
+    Fold 1/5 - train 15,966, val 3,991... F1=0.8373, AUC=0.9506
+    Fold 2/5 - train 15,964, val 3,993... F1=0.8032, AUC=0.9370
+    Fold 3/5 - train 15,964, val 3,993... F1=0.7797, AUC=0.9243
+    Fold 4/5 - train 15,967, val 3,990... F1=0.8231, AUC=0.9487
+    Fold 5/5 - train 15,967, val 3,990... F1=0.7974, AUC=0.9344
+  CV Results - F1: 0.8081, AUC: 0.9390
+  Final test - train 19,957, test 4,980... F1=0.8228, AUC=0.9508
+
+Seed 10/10 (seed=51)...
+  Split: train 19,950 (80.0%), test 4,987 (20.0%)
+    Fold 1/5 - train 15,961, val 3,989... F1=0.8103, AUC=0.9426
+    Fold 2/5 - train 15,959, val 3,991... F1=0.7842, AUC=0.9319
+    Fold 3/5 - train 15,959, val 3,991... F1=0.7938, AUC=0.9316
+    Fold 4/5 - train 15,962, val 3,988... F1=0.8281, AUC=0.9496
+    Fold 5/5 - train 15,959, val 3,991... F1=0.8136, AUC=0.9399
+  CV Results - F1: 0.8060, AUC: 0.9391
+  Final test - train 19,950, test 4,987... F1=0.8204, AUC=0.9467
+
+[STEP 6] Aggregating results and saving...
+--------------------------------------------------------------------------------
+  [OK] Saved CV results: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/xgb_scaffold_per_seed_cv.csv
+  [OK] Saved test results: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/xgb_scaffold_per_seed_test.csv
+  [OK] Saved summary: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/xgb_scaffold_mean_std.csv
+  [OK] Saved test set predictions: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/xgb_scaffold_predictions.npz (test_sizes per seed: [4987, 4913, 4987, 4972, 4988, 4953, 4982, 4982, 4980, 4987])
+
+================================================================================
+RESULTS - MEAN ± STANDARD DEVIATION (across 10 seeds)
+================================================================================
+
+5-Fold CV on Training Portion:
+--------------------------------------------------------------------------------
+  Recall         : 0.7920 ± 0.0040
+  Precision      : 0.8247 ± 0.0029
+  F1             : 0.8050 ± 0.0030
+  Auc            : 0.9391 ± 0.0015
+  Specificity    : 0.8937 ± 0.0021
+  Accuracy       : 0.8134 ± 0.0031
+
+Test Set (Unseen Scaffolds):
+--------------------------------------------------------------------------------
+  Recall         : 0.8089 ± 0.0128
+  Precision      : 0.8358 ± 0.0110
+  F1             : 0.8200 ± 0.0113
+  Auc            : 0.9471 ± 0.0041
+  Specificity    : 0.9031 ± 0.0072
+  Accuracy       : 0.8293 ± 0.0120
+
+================================================================================
+Evaluation complete!
+================================================================================
+
+[STEP 7] Computing SHAP values (post-hoc, first seed)...
+--------------------------------------------------------------------------------
+  [OK] SHAP saved to /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/shap/xgb_scaffold_shap_values.npz
+EXIT 0

@@ -1,0 +1,307 @@
+===== START (cleaned labels, LORO) Sat Oct 17 10:40:18 EDT 2026 =====
+================================================================================
+XGBOOST LORO EVALUATION
+================================================================================
+
+[1] Aggregating receptor features...
+  Receptors with features: 68
+
+[2] Loading ligand data (_NEW only, validated)...
+    [WARNING] 5-HT1A_antagonist_enriched_NEW.xlsx: repeat columns differ from the original for 4 descriptors (Asphericity, Eccentricity, InertialShapeFactor, RadiusOfGyration); keeping the original
+  [1/68] 5-HT1A: agonist=394, antagonist=158, inactive=1038
+  [2/68] 5-HT1B: agonist=69, antagonist=53, inactive=69
+  [3/68] 5-HT1D: agonist=39, antagonist=58, inactive=6
+  [4/68] 5-HT1F: agonist=14, antagonist=no _NEW file, inactive=13
+  [5/68] 5-HT2A: agonist=433, antagonist=359, inactive=688
+  [6/68] 5-HT2B: agonist=268, antagonist=138, inactive=570
+  [7/68] 5-HT2C: agonist=676, antagonist=104, inactive=861
+  [8/68] 5-HT4: agonist=17, antagonist=1, inactive=40
+  [9/68] 5-HT5A: agonist=2, antagonist=9, inactive=16
+  [10/68] 5-HT6: agonist=35, antagonist=279, inactive=216
+  [11/68] 5-HT7: agonist=27, antagonist=92, inactive=159
+  [12/68] A1: agonist=203, antagonist=241, inactive=364
+  [13/68] A2A: agonist=225, antagonist=616, inactive=385
+  [14/68] A2B: agonist=220, antagonist=551, inactive=1482
+  [15/68] A3: agonist=136, antagonist=336, inactive=380
+  [16/68] alpha1A: agonist=1, antagonist=39, inactive=13
+  [17/68] alpha1B: agonist=1, antagonist=33, inactive=30
+  [18/68] alpha2C: agonist=36, antagonist=no _NEW file, inactive=36
+  [19/68] beta1: agonist=242, antagonist=11, inactive=191
+  [20/68] beta2: agonist=84, antagonist=11, inactive=133
+  [21/68] beta3: agonist=91, antagonist=11, inactive=24
+  [22/68] BLT1: agonist=no _NEW file, antagonist=24, inactive=1
+  [23/68] CB1: agonist=856, antagonist=680, inactive=1430
+  [24/68] CB2: agonist=1790, antagonist=124, inactive=1991
+  [25/68] CysLT1: agonist=3, antagonist=180, inactive=28
+  [26/68] CysLT2: agonist=3, antagonist=68, inactive=38
+  [27/68] D1: agonist=108, antagonist=59, inactive=195
+  [28/68] D2: agonist=461, antagonist=416, inactive=1366
+  [29/68] D3: agonist=233, antagonist=414, inactive=403
+  [30/68] D4: agonist=125, antagonist=81, inactive=177
+  [31/68] D5: agonist=1, antagonist=5, inactive=22
+  [32/68] EP2: agonist=171, antagonist=81, inactive=276
+  [33/68] EP3: agonist=52, antagonist=230, inactive=264
+  [34/68] EP4: agonist=65, antagonist=282, inactive=338
+  [35/68] FFA1: agonist=240, antagonist=no _NEW file, inactive=399
+  [36/68] FFA2: agonist=64, antagonist=73, inactive=141
+  [37/68] FFA3: agonist=45, antagonist=no _NEW file, inactive=74
+  [38/68] FFA4: agonist=54, antagonist=1, inactive=97
+  [39/68] FP: agonist=17, antagonist=4, inactive=199
+  [40/68] GPBA: agonist=30, antagonist=no _NEW file, inactive=14
+  [41/68] GPR119: agonist=206, antagonist=no _NEW file, inactive=91
+  [42/68] GPR139: agonist=22, antagonist=no _NEW file, inactive=23
+  [43/68] GPR174: agonist=50, antagonist=7, inactive=50
+  [44/68] GPR35: agonist=56, antagonist=36, inactive=58
+  [45/68] H1: agonist=7, antagonist=251, inactive=172
+  [46/68] H2: agonist=84, antagonist=no _NEW file, inactive=225
+  [47/68] H3: agonist=229, antagonist=784, inactive=371
+  [48/68] H4: agonist=134, antagonist=131, inactive=389
+  [49/68] HCA2: agonist=33, antagonist=no _NEW file, inactive=47
+  [50/68] IP: agonist=133, antagonist=25, inactive=229
+  [51/68] LPA1: agonist=23, antagonist=126, inactive=180
+  [52/68] M1: agonist=275, antagonist=313, inactive=547
+  [53/68] M2: agonist=60, antagonist=208, inactive=266
+  [54/68] M3: agonist=32, antagonist=332, inactive=257
+  [55/68] M4: agonist=62, antagonist=86, inactive=235
+  [56/68] M5: agonist=44, antagonist=74, inactive=202
+  [57/68] MT1: agonist=130, antagonist=42, inactive=211
+  [58/68] MT2: agonist=124, antagonist=40, inactive=223
+  [59/68] P2Y1: agonist=359, antagonist=479, inactive=603
+  [60/68] P2Y12: agonist=1, antagonist=287, inactive=108
+  [61/68] PAF: agonist=no _NEW file, antagonist=20, inactive=3
+  [62/68] S1P1: agonist=1013, antagonist=36, inactive=408
+  [63/68] S1P2: agonist=34, antagonist=102, inactive=116
+  [64/68] S1P3: agonist=460, antagonist=19, inactive=512
+  [65/68] S1P5: agonist=95, antagonist=23, inactive=29
+  [66/68] succinate: agonist=23, antagonist=13, inactive=1
+  [67/68] TA1: agonist=18, antagonist=8, inactive=19
+  [68/68] TP: agonist=6, antagonist=150, inactive=200
+  [CLEAN] Removed 15,065 rows where the same compound at the same receptor has conflicting labels (7,115 pairs) and 598 same-label duplicates; 24,937 rows remain
+  [OK] 24,937 compounds from 193 _NEW files (agonist=5,327, antagonist=7,610, inactive=12,000)
+  [OK] Data manifest saved: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_loro_eval_data_manifest.csv
+  [OK] Removed rows listed in: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_loro_eval_removed_label_conflicts.csv
+  Samples: 24,937, features: 1679, receptors: 68
+
+[3] LORO evaluation (receptor × seed)...
+--------------------------------------------------------------------------------
+  5-HT1A seed=42 n_train=24272 n_test=665 F1=0.3533 AUC=0.6641
+  5-HT1B seed=42 n_train=24756 n_test=181 F1=0.6694 AUC=0.9127
+  5-HT1D seed=42 n_train=24836 n_test=101 F1=0.8137 AUC=0.9875
+  [SKIP] 5-HT1F seed=42: n_test=11 < 20
+  5-HT2A seed=42 n_train=24244 n_test=693 F1=0.7530 AUC=0.9283
+  5-HT2B seed=42 n_train=24455 n_test=482 F1=0.6027 AUC=0.8852
+  5-HT2C seed=42 n_train=24308 n_test=629 F1=0.5612 AUC=0.7463
+  5-HT4 seed=42 n_train=24907 n_test=30 F1=0.3095 AUC=0.7403
+  5-HT5A seed=42 n_train=24916 n_test=21 F1=0.3824 AUC=NaN
+  5-HT6 seed=42 n_train=24613 n_test=324 F1=0.3198 AUC=0.7050
+  5-HT7 seed=42 n_train=24838 n_test=99 F1=0.3628 AUC=0.5672
+  A1 seed=42 n_train=24434 n_test=503 F1=0.6845 AUC=0.8682
+  A2A seed=42 n_train=24078 n_test=859 F1=0.4688 AUC=0.8057
+  A2B seed=42 n_train=22939 n_test=1998 F1=0.4874 AUC=0.7180
+  A3 seed=42 n_train=24253 n_test=684 F1=0.5885 AUC=0.7381
+  alpha1A seed=42 n_train=24884 n_test=53 F1=0.9674 AUC=1.0000
+  alpha1B seed=42 n_train=24875 n_test=62 F1=0.6610 AUC=1.0000
+  alpha2C seed=42 n_train=24911 n_test=26 F1=0.8003 AUC=NaN
+  beta1 seed=42 n_train=24549 n_test=388 F1=0.3171 AUC=0.7529
+  beta2 seed=42 n_train=24771 n_test=166 F1=0.8156 AUC=0.9113
+  beta3 seed=42 n_train=24835 n_test=102 F1=0.2384 AUC=0.6342
+  BLT1 seed=42 n_train=24912 n_test=25 F1=0.8227 AUC=NaN
+  CB1 seed=42 n_train=22920 n_test=2017 F1=0.3511 AUC=0.7120
+  CB2 seed=42 n_train=23433 n_test=1504 F1=0.5052 AUC=0.7025
+  CysLT1 seed=42 n_train=24736 n_test=201 F1=0.6123 AUC=0.8730
+  CysLT2 seed=42 n_train=24832 n_test=105 F1=0.7876 AUC=0.8197
+  D1 seed=42 n_train=24829 n_test=108 F1=0.4221 AUC=0.7148
+  D2 seed=42 n_train=24107 n_test=830 F1=0.6023 AUC=0.7594
+  D3 seed=42 n_train=24395 n_test=542 F1=0.5696 AUC=0.8174
+  D4 seed=42 n_train=24823 n_test=114 F1=0.4304 AUC=0.7226
+  D5 seed=42 n_train=24913 n_test=24 F1=0.6190 AUC=0.6653
+  EP2 seed=42 n_train=24511 n_test=426 F1=0.4657 AUC=0.8156
+  EP3 seed=42 n_train=24397 n_test=540 F1=0.5042 AUC=0.8200
+  EP4 seed=42 n_train=24374 n_test=563 F1=0.4193 AUC=0.7795
+  FFA1 seed=42 n_train=24682 n_test=255 F1=0.3335 AUC=NaN
+  FFA2 seed=42 n_train=24785 n_test=152 F1=0.4318 AUC=0.8829
+  FFA3 seed=42 n_train=24904 n_test=33 F1=0.3175 AUC=NaN
+  FFA4 seed=42 n_train=24883 n_test=54 F1=0.4545 AUC=NaN
+  FP seed=42 n_train=24727 n_test=210 F1=0.9826 AUC=NaN
+  GPBA seed=42 n_train=24899 n_test=38 F1=0.3030 AUC=NaN
+  GPR119 seed=42 n_train=24780 n_test=157 F1=0.1180 AUC=NaN
+  [SKIP] GPR139 seed=42: n_test=3 < 20
+  [SKIP] GPR174 seed=42: n_test=7 < 20
+  GPR35 seed=42 n_train=24893 n_test=44 F1=0.4762 AUC=NaN
+  H1 seed=42 n_train=24536 n_test=401 F1=0.5058 AUC=0.8312
+  H2 seed=42 n_train=24768 n_test=169 F1=0.3067 AUC=NaN
+  H3 seed=42 n_train=23856 n_test=1081 F1=0.2022 AUC=0.6311
+  H4 seed=42 n_train=24526 n_test=411 F1=0.2731 AUC=0.5302
+  HCA2 seed=42 n_train=24911 n_test=26 F1=0.4348 AUC=NaN
+  IP seed=42 n_train=24556 n_test=381 F1=0.3301 AUC=0.8204
+  LPA1 seed=42 n_train=24666 n_test=271 F1=0.4364 AUC=0.7112
+  M1 seed=42 n_train=24274 n_test=663 F1=0.5940 AUC=0.7966
+  M2 seed=42 n_train=24556 n_test=381 F1=0.8829 AUC=0.9401
+  M3 seed=42 n_train=24431 n_test=506 F1=0.7833 AUC=0.9193
+  M4 seed=42 n_train=24738 n_test=199 F1=0.7884 AUC=0.9006
+  M5 seed=42 n_train=24765 n_test=172 F1=0.7624 AUC=0.8801
+  MT1 seed=42 n_train=24720 n_test=217 F1=0.4934 AUC=0.8775
+  MT2 seed=42 n_train=24739 n_test=198 F1=0.4220 AUC=0.9445
+  P2Y1 seed=42 n_train=24015 n_test=922 F1=0.5119 AUC=0.8000
+  P2Y12 seed=42 n_train=24541 n_test=396 F1=0.6520 AUC=0.9755
+  PAF seed=42 n_train=24914 n_test=23 F1=0.2609 AUC=NaN
+  S1P1 seed=42 n_train=23952 n_test=985 F1=0.2502 AUC=0.5942
+  S1P2 seed=42 n_train=24788 n_test=149 F1=0.2253 AUC=0.5141
+  S1P3 seed=42 n_train=24122 n_test=815 F1=0.3953 AUC=0.6554
+  S1P5 seed=42 n_train=24798 n_test=139 F1=0.2837 AUC=0.6400
+  succinate seed=42 n_train=24902 n_test=35 F1=0.1667 AUC=NaN
+  TA1 seed=42 n_train=24915 n_test=22 F1=0.1778 AUC=0.5851
+  TP seed=42 n_train=24591 n_test=346 F1=0.2648 AUC=0.8496
+  5-HT1A seed=43 n_train=24272 n_test=665 F1=0.3507 AUC=0.6567
+  5-HT1B seed=43 n_train=24756 n_test=181 F1=0.6698 AUC=0.9097
+  5-HT1D seed=43 n_train=24836 n_test=101 F1=0.8137 AUC=0.9881
+  [SKIP] 5-HT1F seed=43: n_test=11 < 20
+  5-HT2A seed=43 n_train=24244 n_test=693 F1=0.7652 AUC=0.9296
+  5-HT2B seed=43 n_train=24455 n_test=482 F1=0.6024 AUC=0.8853
+  5-HT2C seed=43 n_train=24308 n_test=629 F1=0.5637 AUC=0.7457
+  5-HT4 seed=43 n_train=24907 n_test=30 F1=0.3030 AUC=0.7174
+  5-HT5A seed=43 n_train=24916 n_test=21 F1=0.3824 AUC=NaN
+  5-HT6 seed=43 n_train=24613 n_test=324 F1=0.3093 AUC=0.7067
+  5-HT7 seed=43 n_train=24838 n_test=99 F1=0.3368 AUC=0.5651
+  A1 seed=43 n_train=24434 n_test=503 F1=0.6963 AUC=0.8717
+  A2A seed=43 n_train=24078 n_test=859 F1=0.4714 AUC=0.8084
+  A2B seed=43 n_train=22939 n_test=1998 F1=0.4886 AUC=0.7174
+  A3 seed=43 n_train=24253 n_test=684 F1=0.5912 AUC=0.7309
+  alpha1A seed=43 n_train=24884 n_test=53 F1=0.9674 AUC=1.0000
+  alpha1B seed=43 n_train=24875 n_test=62 F1=0.6610 AUC=1.0000
+  alpha2C seed=43 n_train=24911 n_test=26 F1=0.7562 AUC=NaN
+  beta1 seed=43 n_train=24549 n_test=388 F1=0.3205 AUC=0.7478
+  beta2 seed=43 n_train=24771 n_test=166 F1=0.8104 AUC=0.9149
+  beta3 seed=43 n_train=24835 n_test=102 F1=0.2694 AUC=0.6252
+  BLT1 seed=43 n_train=24912 n_test=25 F1=0.8227 AUC=NaN
+  CB1 seed=43 n_train=22920 n_test=2017 F1=0.3489 AUC=0.7135
+  CB2 seed=43 n_train=23433 n_test=1504 F1=0.5034 AUC=0.7035
+  CysLT1 seed=43 n_train=24736 n_test=201 F1=0.6516 AUC=0.8762
+  CysLT2 seed=43 n_train=24832 n_test=105 F1=0.7876 AUC=0.8208
+  D1 seed=43 n_train=24829 n_test=108 F1=0.4262 AUC=0.7362
+  D2 seed=43 n_train=24107 n_test=830 F1=0.6101 AUC=0.7606
+  D3 seed=43 n_train=24395 n_test=542 F1=0.5775 AUC=0.8179
+  D4 seed=43 n_train=24823 n_test=114 F1=0.4129 AUC=0.7023
+  D5 seed=43 n_train=24913 n_test=24 F1=0.5380 AUC=0.6653
+  EP2 seed=43 n_train=24511 n_test=426 F1=0.4630 AUC=0.8086
+  EP3 seed=43 n_train=24397 n_test=540 F1=0.4870 AUC=0.8099
+  EP4 seed=43 n_train=24374 n_test=563 F1=0.4111 AUC=0.7804
+  FFA1 seed=43 n_train=24682 n_test=255 F1=0.3090 AUC=NaN
+  FFA2 seed=43 n_train=24785 n_test=152 F1=0.4302 AUC=0.8655
+  FFA3 seed=43 n_train=24904 n_test=33 F1=0.3118 AUC=NaN
+  FFA4 seed=43 n_train=24883 n_test=54 F1=0.4545 AUC=NaN
+  FP seed=43 n_train=24727 n_test=210 F1=0.9826 AUC=NaN
+  GPBA seed=43 n_train=24899 n_test=38 F1=0.3030 AUC=NaN
+  GPR119 seed=43 n_train=24780 n_test=157 F1=0.1180 AUC=NaN
+  [SKIP] GPR139 seed=43: n_test=3 < 20
+  [SKIP] GPR174 seed=43: n_test=7 < 20
+  GPR35 seed=43 n_train=24893 n_test=44 F1=0.4762 AUC=NaN
+  H1 seed=43 n_train=24536 n_test=401 F1=0.5079 AUC=0.8438
+  H2 seed=43 n_train=24768 n_test=169 F1=0.3079 AUC=NaN
+  H3 seed=43 n_train=23856 n_test=1081 F1=0.2068 AUC=0.6270
+  H4 seed=43 n_train=24526 n_test=411 F1=0.2661 AUC=0.5275
+  HCA2 seed=43 n_train=24911 n_test=26 F1=0.4348 AUC=NaN
+  IP seed=43 n_train=24556 n_test=381 F1=0.3425 AUC=0.8233
+  LPA1 seed=43 n_train=24666 n_test=271 F1=0.3486 AUC=0.6988
+  M1 seed=43 n_train=24274 n_test=663 F1=0.5953 AUC=0.7951
+  M2 seed=43 n_train=24556 n_test=381 F1=0.8811 AUC=0.9420
+  M3 seed=43 n_train=24431 n_test=506 F1=0.7778 AUC=0.9166
+  M4 seed=43 n_train=24738 n_test=199 F1=0.7778 AUC=0.8999
+  M5 seed=43 n_train=24765 n_test=172 F1=0.7700 AUC=0.8885
+  MT1 seed=43 n_train=24720 n_test=217 F1=0.5428 AUC=0.8756
+  MT2 seed=43 n_train=24739 n_test=198 F1=0.5355 AUC=0.9413
+  P2Y1 seed=43 n_train=24015 n_test=922 F1=0.5163 AUC=0.8106
+  P2Y12 seed=43 n_train=24541 n_test=396 F1=0.6468 AUC=0.9755
+  PAF seed=43 n_train=24914 n_test=23 F1=0.2609 AUC=NaN
+  S1P1 seed=43 n_train=23952 n_test=985 F1=0.2440 AUC=0.6070
+  S1P2 seed=43 n_train=24788 n_test=149 F1=0.2227 AUC=0.5118
+  S1P3 seed=43 n_train=24122 n_test=815 F1=0.3796 AUC=0.6456
+  S1P5 seed=43 n_train=24798 n_test=139 F1=0.2782 AUC=0.6214
+  succinate seed=43 n_train=24902 n_test=35 F1=0.1667 AUC=NaN
+  TA1 seed=43 n_train=24915 n_test=22 F1=0.1778 AUC=0.5756
+  TP seed=43 n_train=24591 n_test=346 F1=0.2343 AUC=0.8436
+  5-HT1A seed=44 n_train=24272 n_test=665 F1=0.3524 AUC=0.6579
+  5-HT1B seed=44 n_train=24756 n_test=181 F1=0.6642 AUC=0.9138
+  5-HT1D seed=44 n_train=24836 n_test=101 F1=0.8690 AUC=0.9873
+  [SKIP] 5-HT1F seed=44: n_test=11 < 20
+  5-HT2A seed=44 n_train=24244 n_test=693 F1=0.7598 AUC=0.9285
+  5-HT2B seed=44 n_train=24455 n_test=482 F1=0.6027 AUC=0.8855
+  5-HT2C seed=44 n_train=24308 n_test=629 F1=0.5576 AUC=0.7470
+  5-HT4 seed=44 n_train=24907 n_test=30 F1=0.3095 AUC=0.7402
+  5-HT5A seed=44 n_train=24916 n_test=21 F1=0.3824 AUC=NaN
+  5-HT6 seed=44 n_train=24613 n_test=324 F1=0.3065 AUC=0.7040
+  5-HT7 seed=44 n_train=24838 n_test=99 F1=0.3628 AUC=0.5633
+  A1 seed=44 n_train=24434 n_test=503 F1=0.6817 AUC=0.8697
+  A2A seed=44 n_train=24078 n_test=859 F1=0.4753 AUC=0.8115
+  A2B seed=44 n_train=22939 n_test=1998 F1=0.4882 AUC=0.7144
+  A3 seed=44 n_train=24253 n_test=684 F1=0.5959 AUC=0.7414
+  alpha1A seed=44 n_train=24884 n_test=53 F1=0.9674 AUC=1.0000
+  alpha1B seed=44 n_train=24875 n_test=62 F1=0.6610 AUC=1.0000
+  alpha2C seed=44 n_train=24911 n_test=26 F1=0.8003 AUC=NaN
+  beta1 seed=44 n_train=24549 n_test=388 F1=0.3200 AUC=0.7489
+  beta2 seed=44 n_train=24771 n_test=166 F1=0.8104 AUC=0.9117
+  beta3 seed=44 n_train=24835 n_test=102 F1=0.2978 AUC=0.6221
+  BLT1 seed=44 n_train=24912 n_test=25 F1=0.8227 AUC=NaN
+  CB1 seed=44 n_train=22920 n_test=2017 F1=0.3480 AUC=0.7107
+  CB2 seed=44 n_train=23433 n_test=1504 F1=0.5088 AUC=0.7008
+  CysLT1 seed=44 n_train=24736 n_test=201 F1=0.6048 AUC=0.8786
+  CysLT2 seed=44 n_train=24832 n_test=105 F1=0.7876 AUC=0.8091
+  D1 seed=44 n_train=24829 n_test=108 F1=0.4221 AUC=0.7192
+  D2 seed=44 n_train=24107 n_test=830 F1=0.6051 AUC=0.7606
+  D3 seed=44 n_train=24395 n_test=542 F1=0.5600 AUC=0.8154
+  D4 seed=44 n_train=24823 n_test=114 F1=0.3949 AUC=0.6945
+  D5 seed=44 n_train=24913 n_test=24 F1=0.5380 AUC=0.6798
+  EP2 seed=44 n_train=24511 n_test=426 F1=0.4679 AUC=0.8135
+  EP3 seed=44 n_train=24397 n_test=540 F1=0.4828 AUC=0.8087
+  EP4 seed=44 n_train=24374 n_test=563 F1=0.4165 AUC=0.7771
+  FFA1 seed=44 n_train=24682 n_test=255 F1=0.3481 AUC=NaN
+  FFA2 seed=44 n_train=24785 n_test=152 F1=0.4477 AUC=0.8776
+  FFA3 seed=44 n_train=24904 n_test=33 F1=0.3060 AUC=NaN
+  FFA4 seed=44 n_train=24883 n_test=54 F1=0.4490 AUC=NaN
+  FP seed=44 n_train=24727 n_test=210 F1=0.9826 AUC=NaN
+  GPBA seed=44 n_train=24899 n_test=38 F1=0.3030 AUC=NaN
+  GPR119 seed=44 n_train=24780 n_test=157 F1=0.1180 AUC=NaN
+  [SKIP] GPR139 seed=44: n_test=3 < 20
+  [SKIP] GPR174 seed=44: n_test=7 < 20
+  GPR35 seed=44 n_train=24893 n_test=44 F1=0.4762 AUC=NaN
+  H1 seed=44 n_train=24536 n_test=401 F1=0.5077 AUC=0.8531
+  H2 seed=44 n_train=24768 n_test=169 F1=0.3079 AUC=NaN
+  H3 seed=44 n_train=23856 n_test=1081 F1=0.2048 AUC=0.6260
+  H4 seed=44 n_train=24526 n_test=411 F1=0.2738 AUC=0.5299
+  HCA2 seed=44 n_train=24911 n_test=26 F1=0.4348 AUC=NaN
+  IP seed=44 n_train=24556 n_test=381 F1=0.3544 AUC=0.8149
+  LPA1 seed=44 n_train=24666 n_test=271 F1=0.3597 AUC=0.7004
+  M1 seed=44 n_train=24274 n_test=663 F1=0.5926 AUC=0.8015
+  M2 seed=44 n_train=24556 n_test=381 F1=0.8829 AUC=0.9421
+  M3 seed=44 n_train=24431 n_test=506 F1=0.7858 AUC=0.9205
+  M4 seed=44 n_train=24738 n_test=199 F1=0.7805 AUC=0.9003
+  M5 seed=44 n_train=24765 n_test=172 F1=0.7775 AUC=0.8811
+  MT1 seed=44 n_train=24720 n_test=217 F1=0.5291 AUC=0.8783
+  MT2 seed=44 n_train=24739 n_test=198 F1=0.5283 AUC=0.9422
+  P2Y1 seed=44 n_train=24015 n_test=922 F1=0.5183 AUC=0.8080
+  P2Y12 seed=44 n_train=24541 n_test=396 F1=0.6361 AUC=0.9752
+  PAF seed=44 n_train=24914 n_test=23 F1=0.2609 AUC=NaN
+  S1P1 seed=44 n_train=23952 n_test=985 F1=0.2562 AUC=0.6130
+  S1P2 seed=44 n_train=24788 n_test=149 F1=0.2185 AUC=0.5163
+  S1P3 seed=44 n_train=24122 n_test=815 F1=0.3848 AUC=0.6508
+  S1P5 seed=44 n_train=24798 n_test=139 F1=0.2837 AUC=0.6342
+  succinate seed=44 n_train=24902 n_test=35 F1=0.1667 AUC=NaN
+  TA1 seed=44 n_train=24915 n_test=22 F1=0.1778 AUC=0.5452
+  TP seed=44 n_train=24591 n_test=346 F1=0.2601 AUC=0.8415
+
+[OK] xgb_loro_per_receptor_per_seed.csv
+[OK] xgb_loro_per_receptor_mean_std.csv
+[OK] xgb_loro_overall_mean_std.csv
+[OK] xgb_loro_predictions.npz
+
+================================================================================
+OVERALL (all receptor×seed)
+================================================================================
+  accuracy_macro: 0.6439 ± 0.2123
+  precision_macro: 0.5636 ± 0.2117
+  recall_macro: 0.5503 ± 0.1889
+  f1_macro: 0.4934 ± 0.2086
+  specificity_macro: 0.7684 ± 0.0999
+  auc_macro_ovr: 0.7841 ± 0.1256
+================================================================================
+EXIT 0

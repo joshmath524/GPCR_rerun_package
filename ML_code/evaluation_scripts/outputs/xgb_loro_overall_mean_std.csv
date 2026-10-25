@@ -1,0 +1,2 @@
+model,accuracy_macro_mean,accuracy_macro_std,precision_macro_mean,precision_macro_std,recall_macro_mean,recall_macro_std,f1_macro_mean,f1_macro_std,specificity_macro_mean,specificity_macro_std,auc_macro_ovr_mean,auc_macro_ovr_std
+XGBoost,0.6439231747465656,0.2122820214521795,0.5635645336793942,0.2117452673634722,0.5503187830919563,0.1889002526336352,0.49335142498447304,0.20858491078459368,0.7683879892810751,0.0999263596173692,0.7840873327571255,0.12555010655193663

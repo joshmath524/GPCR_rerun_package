@@ -1,0 +1,2 @@
+model,accuracy_macro_mean,accuracy_macro_std,precision_macro_mean,precision_macro_std,recall_macro_mean,recall_macro_std,f1_macro_mean,f1_macro_std,specificity_macro_mean,specificity_macro_std,auc_macro_ovr_mean,auc_macro_ovr_std
+LightGBM,0.6333695551311886,0.21262039848951758,0.5446381188801842,0.22351428280236382,0.5415363107722623,0.19369899022789377,0.47735651010323543,0.21006296840849267,0.7626182946159629,0.09890818616121182,0.7807336753739643,0.12991784866903308

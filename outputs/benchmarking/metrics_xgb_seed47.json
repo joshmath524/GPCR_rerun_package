@@ -1,0 +1,23 @@
+{
+  "test": {
+    "precision_macro": 0.9079949175786557,
+    "recall_macro": 0.8660472319008905,
+    "f1_macro": 0.8829742293165217,
+    "specificity_macro": 0.9375840559430476,
+    "auc_macro": 0.9696186401359087
+  },
+  "ilv": {
+    "precision_macro": 0.8146919752850824,
+    "recall_macro": 0.7812160316866459,
+    "f1_macro": 0.7945432809550957,
+    "specificity_macro": 0.8939013058406884,
+    "auc_macro": 0.9465765892161707
+  },
+  "internal_val": {
+    "precision_macro": 0.8895716610588652,
+    "recall_macro": 0.8690565590838735,
+    "f1_macro": 0.8781673880456395,
+    "specificity_macro": 0.9373028783210451,
+    "auc_macro": 0.9671886021804074
+  }
+}

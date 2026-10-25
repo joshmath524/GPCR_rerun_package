@@ -1,0 +1,38 @@
+label,chain_id,residue_id,residue_name,residue_full_name,distance_to_ligand,secondary_structure,physicochemical_type,charge,polarity,size,aromatic,sulfur,hydroxyl,amide,acidic,basic,binding_potential,distance_class,shell,conservation_level,conservation_score,is_conserved_position,gpcr_position
+TYR79R (Tyrosine),R,79,TYR,Tyrosine,2.51,Coil,polar,neutral,polar,large,True,False,True,False,False,False,high_aromatic,direct_contact,first,variable,3,False,TM8_257
+ARG75R (Arginine),R,75,ARG,Arginine,2.61,Coil,basic,positive,polar,large,False,False,False,False,False,True,high_ionic,direct_contact,first,moderately_conserved,5,False,TM4_99
+ARG156R (Arginine),R,156,ARG,Arginine,2.74,Coil,basic,positive,polar,large,False,False,False,False,False,True,high_ionic,direct_contact,first,variable,3,False,ECL1_278
+TYR99R (Tyrosine),R,99,TYR,Tyrosine,2.77,Coil,polar,neutral,polar,large,True,False,True,False,False,False,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM6_152
+LYS257R (Lysine),R,257,LYS,Lysine,3.05,Coil,basic,positive,polar,large,False,False,False,False,False,True,high_ionic,direct_contact,first,variable,3,False,TM4_110
+PHE169R (Phenylalanine),R,169,PHE,Phenylalanine,3.05,Coil,hydrophobic,neutral,nonpolar,large,True,False,False,False,False,False,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM1_22
+TYR246R (Tyrosine),R,246,TYR,Tyrosine,3.13,Coil,polar,neutral,polar,large,True,False,True,False,False,False,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM1_18
+PHE152R (Phenylalanine),R,152,PHE,Phenylalanine,3.64,Coil,hydrophobic,neutral,nonpolar,large,True,False,False,False,False,False,high_aromatic,direct_contact,first,variable,3,False,TM6_155
+HIS274R (Histidine),R,274,HIS,Histidine,3.68,Coil,basic,positive,polar,medium,True,False,False,False,False,True,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM7_194
+PHE95R (Phenylalanine),R,95,PHE,Phenylalanine,3.68,Coil,hydrophobic,neutral,nonpolar,large,True,False,False,False,False,False,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM6_169
+ILE106R (Isoleucine),R,106,ILE,Isoleucine,3.86,Coil,hydrophobic,neutral,nonpolar,large,False,False,False,False,False,False,high_van_der_waals,direct_contact,first,variable,3,False,TM4_106
+TYR26R (Tyrosine),R,26,TYR,Tyrosine,3.88,Coil,polar,neutral,polar,large,True,False,True,False,False,False,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM6_156
+PHE254R (Phenylalanine),R,254,PHE,Phenylalanine,3.91,Coil,hydrophobic,neutral,nonpolar,large,True,False,False,False,False,False,high_aromatic,direct_contact,first,variable,3,False,TM7_190
+TYR107R (Tyrosine),R,107,TYR,Tyrosine,3.95,Coil,polar,neutral,polar,large,True,False,True,False,False,False,high_aromatic,direct_contact,first,moderately_conserved,5,False,TM1_26
+PHE250R (Phenylalanine),R,250,PHE,Phenylalanine,3.99,Coil,hydrophobic,neutral,nonpolar,large,True,False,False,False,False,False,high_aromatic,direct_contact,first,variable,3,False,TM5_148
+TYR103R (Tyrosine),R,103,TYR,Tyrosine,4.0,Coil,polar,neutral,polar,large,True,False,True,False,False,False,medium_interaction,secondary_shell,second,variable,3,False,ECL1_274
+GLY189R (Glycine),R,189,GLY,Glycine,4.04,Coil,hydrophobic,neutral,nonpolar,small,False,False,False,False,False,False,low_interaction,secondary_shell,second,variable,3,False,TM5_145
+LEU155R (Leucine),R,155,LEU,Leucine,4.09,Coil,hydrophobic,neutral,nonpolar,large,False,False,False,False,False,False,low_interaction,secondary_shell,second,variable,3,False,TM7_192
+ILE192R (Isoleucine),R,192,ILE,Isoleucine,4.15,Coil,hydrophobic,neutral,nonpolar,large,False,False,False,False,False,False,low_interaction,secondary_shell,second,conserved,7,False,TM5_149
+LEU278R (Leucine),R,278,LEU,Leucine,4.21,Coil,hydrophobic,neutral,nonpolar,large,False,False,False,False,False,False,low_interaction,secondary_shell,second,variable,3,False,TM4_104
+TYR22R (Tyrosine),R,22,TYR,Tyrosine,4.25,Coil,polar,neutral,polar,large,True,False,True,False,False,False,medium_interaction,secondary_shell,second,moderately_conserved,5,False,TM3_75
+GLY193R (Glycine),R,193,GLY,Glycine,4.25,Coil,hydrophobic,neutral,nonpolar,small,False,False,False,False,False,False,low_interaction,secondary_shell,second,variable,3,False,TM6_151
+ASP253R (Aspartic acid),R,253,ASP,Aspartic acid,4.27,Coil,acidic,negative,polar,medium,False,False,False,False,True,False,medium_interaction,secondary_shell,second,variable,3,False,TM7_186
+PRO197R (Proline),R,197,PRO,Proline,4.27,Coil,hydrophobic,neutral,nonpolar,medium,False,False,False,False,False,False,low_interaction,secondary_shell,second,variable,3,False,TM4_98
+ILE145R (Isoleucine),R,145,ILE,Isoleucine,4.29,Coil,hydrophobic,neutral,nonpolar,large,False,False,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM4_107
+VAL170R (Valine),R,170,VAL,Valine,4.3,Coil,hydrophobic,neutral,nonpolar,medium,False,False,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM7_193
+CYS149R (Cysteine),R,149,CYS,Cysteine,4.41,Coil,polar,neutral,polar,small,False,True,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM4_103
+LEU151R (Leucine),R,151,LEU,Leucine,4.42,Coil,hydrophobic,neutral,nonpolar,large,False,False,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM7_189
+MET185R (Methionine),R,185,MET,Methionine,4.47,Coil,hydrophobic,neutral,nonpolar,large,False,True,False,False,False,False,low_interaction,secondary_shell,second,variable,3,False,TM8_253
+LYS98R (Lysine),R,98,LYS,Lysine,4.49,Coil,basic,positive,polar,large,False,False,False,False,False,True,medium_interaction,secondary_shell,second,moderately_conserved,5,False,TM8_246
+ARG18R (Arginine),R,18,ARG,Arginine,4.69,Coil,basic,positive,polar,large,False,False,False,False,False,True,medium_interaction,secondary_shell,second,moderately_conserved,5,False,TM3_79
+ALA148R (Alanine),R,148,ALA,Alanine,4.74,Coil,hydrophobic,neutral,nonpolar,small,False,False,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM8_250
+MET186R (Methionine),R,186,MET,Methionine,5.61,Coil,hydrophobic,neutral,nonpolar,large,False,True,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM7_197
+GLU190R (Glutamic acid),R,190,GLU,Glutamic acid,5.81,Coil,acidic,negative,polar,medium,False,False,False,False,True,False,medium_interaction,secondary_shell,second,variable,3,False,TM6_170
+VAL110R (Valine),R,110,VAL,Valine,5.86,Coil,hydrophobic,neutral,nonpolar,medium,False,False,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM8_254
+PHE194R (Phenylalanine),R,194,PHE,Phenylalanine,5.94,Coil,hydrophobic,neutral,nonpolar,large,True,False,False,False,False,False,medium_interaction,secondary_shell,second,variable,3,False,TM7_185
+ALA104R (Alanine),R,104,ALA,Alanine,5.95,Coil,hydrophobic,neutral,nonpolar,small,False,False,False,False,False,False,low_interaction,secondary_shell,second,moderately_conserved,5,False,TM4_95

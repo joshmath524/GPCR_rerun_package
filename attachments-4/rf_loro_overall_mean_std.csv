@@ -1,0 +1,2 @@
+model,accuracy_macro_mean,accuracy_macro_std,precision_macro_mean,precision_macro_std,recall_macro_mean,recall_macro_std,f1_macro_mean,f1_macro_std,specificity_macro_mean,specificity_macro_std,auc_macro_ovr_mean,auc_macro_ovr_std
+Random Forest,0.6466783560046487,0.22250484033159457,0.5735931929914301,0.22385952618812224,0.5616139903769684,0.2012070240351229,0.5002179288608928,0.22457574382051082,0.7689815373439046,0.10473093221136211,0.7962194371720043,0.11919811240838894

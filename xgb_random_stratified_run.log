@@ -1,0 +1,374 @@
+===== START Wed Oct 14 15:14:33 EDT 2026 =====
+================================================================================
+XGBOOST RANDOM STRATIFIED SPLIT EVALUATION (10 SEEDS)
+================================================================================
+
+Random Stratified Split: 80% training / 20% test (allows SMILES overlap)
+For each seed: 5-fold StratifiedKFold CV on training portion + test set evaluation
+Using fixed best-trial hyperparameters (trial 111), n_estimators=1843
+================================================================================
+
+[STEP 0] Using fixed best-trial hyperparameters (trial 111)...
+--------------------------------------------------------------------------------
+  [OK] Hyperparameters set (n_estimators=1843)
+
+[STEP 1] Loading data...
+--------------------------------------------------------------------------------
+Aggregating receptor features...
+  [OK] 68 receptors with features
+
+Loading ligand data from individual receptor files (_NEW only, validated)...
+    [WARNING] 5-HT1A_antagonist_enriched_NEW.xlsx: repeat columns differ from the original for 4 descriptors (Asphericity, Eccentricity, InertialShapeFactor, RadiusOfGyration); keeping the original
+  [1/68] 5-HT1A: agonist=394, antagonist=158, inactive=1038
+  [2/68] 5-HT1B: agonist=69, antagonist=53, inactive=69
+  [3/68] 5-HT1D: agonist=39, antagonist=58, inactive=6
+  [4/68] 5-HT1F: agonist=14, antagonist=no _NEW file, inactive=13
+  [5/68] 5-HT2A: agonist=433, antagonist=359, inactive=688
+  [6/68] 5-HT2B: agonist=268, antagonist=138, inactive=570
+  [7/68] 5-HT2C: agonist=676, antagonist=104, inactive=861
+  [8/68] 5-HT4: agonist=17, antagonist=1, inactive=40
+  [9/68] 5-HT5A: agonist=2, antagonist=9, inactive=16
+  [10/68] 5-HT6: agonist=35, antagonist=279, inactive=216
+  [11/68] 5-HT7: agonist=27, antagonist=92, inactive=159
+  [12/68] A1: agonist=203, antagonist=241, inactive=364
+  [13/68] A2A: agonist=225, antagonist=616, inactive=385
+  [14/68] A2B: agonist=220, antagonist=551, inactive=1482
+  [15/68] A3: agonist=136, antagonist=336, inactive=380
+  [16/68] alpha1A: agonist=1, antagonist=39, inactive=13
+  [17/68] alpha1B: agonist=1, antagonist=33, inactive=30
+  [18/68] alpha2C: agonist=36, antagonist=no _NEW file, inactive=36
+  [19/68] beta1: agonist=242, antagonist=11, inactive=191
+  [20/68] beta2: agonist=84, antagonist=11, inactive=133
+  [21/68] beta3: agonist=91, antagonist=11, inactive=24
+  [22/68] BLT1: agonist=no _NEW file, antagonist=24, inactive=1
+  [23/68] CB1: agonist=856, antagonist=680, inactive=1430
+  [24/68] CB2: agonist=1790, antagonist=124, inactive=1991
+  [25/68] CysLT1: agonist=3, antagonist=180, inactive=28
+  [26/68] CysLT2: agonist=3, antagonist=68, inactive=38
+  [27/68] D1: agonist=108, antagonist=59, inactive=195
+  [28/68] D2: agonist=461, antagonist=416, inactive=1366
+  [29/68] D3: agonist=233, antagonist=414, inactive=403
+  [30/68] D4: agonist=125, antagonist=81, inactive=177
+  [31/68] D5: agonist=1, antagonist=5, inactive=22
+  [32/68] EP2: agonist=171, antagonist=81, inactive=276
+  [33/68] EP3: agonist=52, antagonist=230, inactive=264
+  [34/68] EP4: agonist=65, antagonist=282, inactive=338
+  [35/68] FFA1: agonist=240, antagonist=no _NEW file, inactive=399
+  [36/68] FFA2: agonist=64, antagonist=73, inactive=141
+  [37/68] FFA3: agonist=45, antagonist=no _NEW file, inactive=74
+  [38/68] FFA4: agonist=54, antagonist=1, inactive=97
+  [39/68] FP: agonist=17, antagonist=4, inactive=199
+  [40/68] GPBA: agonist=30, antagonist=no _NEW file, inactive=14
+  [41/68] GPR119: agonist=206, antagonist=no _NEW file, inactive=91
+  [42/68] GPR139: agonist=22, antagonist=no _NEW file, inactive=23
+  [43/68] GPR174: agonist=50, antagonist=7, inactive=50
+  [44/68] GPR35: agonist=56, antagonist=36, inactive=58
+  [45/68] H1: agonist=7, antagonist=251, inactive=172
+  [46/68] H2: agonist=84, antagonist=no _NEW file, inactive=225
+  [47/68] H3: agonist=229, antagonist=784, inactive=371
+  [48/68] H4: agonist=134, antagonist=131, inactive=389
+  [49/68] HCA2: agonist=33, antagonist=no _NEW file, inactive=47
+  [50/68] IP: agonist=133, antagonist=25, inactive=229
+  [51/68] LPA1: agonist=23, antagonist=126, inactive=180
+  [52/68] M1: agonist=275, antagonist=313, inactive=547
+  [53/68] M2: agonist=60, antagonist=208, inactive=266
+  [54/68] M3: agonist=32, antagonist=332, inactive=257
+  [55/68] M4: agonist=62, antagonist=86, inactive=235
+  [56/68] M5: agonist=44, antagonist=74, inactive=202
+  [57/68] MT1: agonist=130, antagonist=42, inactive=211
+  [58/68] MT2: agonist=124, antagonist=40, inactive=223
+  [59/68] P2Y1: agonist=359, antagonist=479, inactive=603
+  [60/68] P2Y12: agonist=1, antagonist=287, inactive=108
+  [61/68] PAF: agonist=no _NEW file, antagonist=20, inactive=3
+  [62/68] S1P1: agonist=1013, antagonist=36, inactive=408
+  [63/68] S1P2: agonist=34, antagonist=102, inactive=116
+  [64/68] S1P3: agonist=460, antagonist=19, inactive=512
+  [65/68] S1P5: agonist=95, antagonist=23, inactive=29
+  [66/68] succinate: agonist=23, antagonist=13, inactive=1
+  [67/68] TA1: agonist=18, antagonist=8, inactive=19
+  [68/68] TP: agonist=6, antagonist=150, inactive=200
+  [OK] 40,600 compounds from 193 _NEW files (agonist=11,244, antagonist=9,414, inactive=19,942)
+  [OK] Data manifest saved: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_random_stratified_10seeds_data_manifest.csv
+  [OK] 40,600 total samples
+  [OK] 14 interaction terms
+  Canonicalizing SMILES for grouping...
+  [OK] All SMILES canonicalized
+  [OK] Total features (numeric only): 1679
+  [OK] Feature matrix: (40600, 1679), Classes: ['agonist', 'antagonist', 'inactive']
+
+[STEP A] Evaluation Loop (10 seeds × 5-fold StratifiedKFold CV + test set)...
+--------------------------------------------------------------------------------
+
+Seed 1/10 (seed=42)...
+  Split: Train=32,480, Test=8,120
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.6196, AUC=0.8268
+    Fold 2/5... F1=0.6142, AUC=0.8261
+    Fold 3/5... F1=0.6251, AUC=0.8295
+    Fold 4/5... F1=0.6390, AUC=0.8381
+    Fold 5/5... F1=0.6273, AUC=0.8329
+  [CV RESULTS] F1=0.6250±0.0093, AUC=0.8307±0.0049
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.6068, AUC=0.8360
+
+Seed 2/10 (seed=43)...
+  Split: Train=32,480, Test=8,120
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.6244, AUC=0.8325
+    Fold 2/5... F1=0.6125, AUC=0.8270
+    Fold 3/5... F1=0.6252, AUC=0.8318
+    Fold 4/5... EXIT 143
+===== START (cleaned labels) Wed Oct 14 19:36:13 EDT 2026 =====
+================================================================================
+XGBOOST RANDOM STRATIFIED SPLIT EVALUATION (10 SEEDS)
+================================================================================
+
+Random Stratified Split: 80% training / 20% test (allows SMILES overlap)
+For each seed: 5-fold StratifiedKFold CV on training portion + test set evaluation
+Using fixed best-trial hyperparameters (trial 111), n_estimators=1843
+================================================================================
+
+[STEP 0] Using fixed best-trial hyperparameters (trial 111)...
+--------------------------------------------------------------------------------
+  [OK] Hyperparameters set (n_estimators=1843)
+
+[STEP 1] Loading data...
+--------------------------------------------------------------------------------
+Aggregating receptor features...
+  [OK] 68 receptors with features
+
+Loading ligand data from individual receptor files (_NEW only, validated)...
+    [WARNING] 5-HT1A_antagonist_enriched_NEW.xlsx: repeat columns differ from the original for 4 descriptors (Asphericity, Eccentricity, InertialShapeFactor, RadiusOfGyration); keeping the original
+  [1/68] 5-HT1A: agonist=394, antagonist=158, inactive=1038
+  [2/68] 5-HT1B: agonist=69, antagonist=53, inactive=69
+  [3/68] 5-HT1D: agonist=39, antagonist=58, inactive=6
+  [4/68] 5-HT1F: agonist=14, antagonist=no _NEW file, inactive=13
+  [5/68] 5-HT2A: agonist=433, antagonist=359, inactive=688
+  [6/68] 5-HT2B: agonist=268, antagonist=138, inactive=570
+  [7/68] 5-HT2C: agonist=676, antagonist=104, inactive=861
+  [8/68] 5-HT4: agonist=17, antagonist=1, inactive=40
+  [9/68] 5-HT5A: agonist=2, antagonist=9, inactive=16
+  [10/68] 5-HT6: agonist=35, antagonist=279, inactive=216
+  [11/68] 5-HT7: agonist=27, antagonist=92, inactive=159
+  [12/68] A1: agonist=203, antagonist=241, inactive=364
+  [13/68] A2A: agonist=225, antagonist=616, inactive=385
+  [14/68] A2B: agonist=220, antagonist=551, inactive=1482
+  [15/68] A3: agonist=136, antagonist=336, inactive=380
+  [16/68] alpha1A: agonist=1, antagonist=39, inactive=13
+  [17/68] alpha1B: agonist=1, antagonist=33, inactive=30
+  [18/68] alpha2C: agonist=36, antagonist=no _NEW file, inactive=36
+  [19/68] beta1: agonist=242, antagonist=11, inactive=191
+  [20/68] beta2: agonist=84, antagonist=11, inactive=133
+  [21/68] beta3: agonist=91, antagonist=11, inactive=24
+  [22/68] BLT1: agonist=no _NEW file, antagonist=24, inactive=1
+  [23/68] CB1: agonist=856, antagonist=680, inactive=1430
+  [24/68] CB2: agonist=1790, antagonist=124, inactive=1991
+  [25/68] CysLT1: agonist=3, antagonist=180, inactive=28
+  [26/68] CysLT2: agonist=3, antagonist=68, inactive=38
+  [27/68] D1: agonist=108, antagonist=59, inactive=195
+  [28/68] D2: agonist=461, antagonist=416, inactive=1366
+  [29/68] D3: agonist=233, antagonist=414, inactive=403
+  [30/68] D4: agonist=125, antagonist=81, inactive=177
+  [31/68] D5: agonist=1, antagonist=5, inactive=22
+  [32/68] EP2: agonist=171, antagonist=81, inactive=276
+  [33/68] EP3: agonist=52, antagonist=230, inactive=264
+  [34/68] EP4: agonist=65, antagonist=282, inactive=338
+  [35/68] FFA1: agonist=240, antagonist=no _NEW file, inactive=399
+  [36/68] FFA2: agonist=64, antagonist=73, inactive=141
+  [37/68] FFA3: agonist=45, antagonist=no _NEW file, inactive=74
+  [38/68] FFA4: agonist=54, antagonist=1, inactive=97
+  [39/68] FP: agonist=17, antagonist=4, inactive=199
+  [40/68] GPBA: agonist=30, antagonist=no _NEW file, inactive=14
+  [41/68] GPR119: agonist=206, antagonist=no _NEW file, inactive=91
+  [42/68] GPR139: agonist=22, antagonist=no _NEW file, inactive=23
+  [43/68] GPR174: agonist=50, antagonist=7, inactive=50
+  [44/68] GPR35: agonist=56, antagonist=36, inactive=58
+  [45/68] H1: agonist=7, antagonist=251, inactive=172
+  [46/68] H2: agonist=84, antagonist=no _NEW file, inactive=225
+  [47/68] H3: agonist=229, antagonist=784, inactive=371
+  [48/68] H4: agonist=134, antagonist=131, inactive=389
+  [49/68] HCA2: agonist=33, antagonist=no _NEW file, inactive=47
+  [50/68] IP: agonist=133, antagonist=25, inactive=229
+  [51/68] LPA1: agonist=23, antagonist=126, inactive=180
+  [52/68] M1: agonist=275, antagonist=313, inactive=547
+  [53/68] M2: agonist=60, antagonist=208, inactive=266
+  [54/68] M3: agonist=32, antagonist=332, inactive=257
+  [55/68] M4: agonist=62, antagonist=86, inactive=235
+  [56/68] M5: agonist=44, antagonist=74, inactive=202
+  [57/68] MT1: agonist=130, antagonist=42, inactive=211
+  [58/68] MT2: agonist=124, antagonist=40, inactive=223
+  [59/68] P2Y1: agonist=359, antagonist=479, inactive=603
+  [60/68] P2Y12: agonist=1, antagonist=287, inactive=108
+  [61/68] PAF: agonist=no _NEW file, antagonist=20, inactive=3
+  [62/68] S1P1: agonist=1013, antagonist=36, inactive=408
+  [63/68] S1P2: agonist=34, antagonist=102, inactive=116
+  [64/68] S1P3: agonist=460, antagonist=19, inactive=512
+  [65/68] S1P5: agonist=95, antagonist=23, inactive=29
+  [66/68] succinate: agonist=23, antagonist=13, inactive=1
+  [67/68] TA1: agonist=18, antagonist=8, inactive=19
+  [68/68] TP: agonist=6, antagonist=150, inactive=200
+  [CLEAN] Removed 15,065 rows where the same compound at the same receptor has conflicting labels (7,115 pairs) and 598 same-label duplicates; 24,937 rows remain
+  [OK] 24,937 compounds from 193 _NEW files (agonist=5,327, antagonist=7,610, inactive=12,000)
+  [OK] Data manifest saved: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_random_stratified_10seeds_data_manifest.csv
+  [OK] Removed rows listed in: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_random_stratified_10seeds_removed_label_conflicts.csv
+  [OK] 24,937 total samples
+  [OK] 14 interaction terms
+  Canonicalizing SMILES for grouping...
+  [OK] All SMILES canonicalized
+  [OK] Total features (numeric only): 1679
+  [OK] Feature matrix: (24937, 1679), Classes: ['agonist', 'antagonist', 'inactive']
+
+[STEP A] Evaluation Loop (10 seeds × 5-fold StratifiedKFold CV + test set)...
+--------------------------------------------------------------------------------
+
+Seed 1/10 (seed=42)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8776, AUC=0.9711
+    Fold 2/5... F1=0.8759, AUC=0.9711
+    Fold 3/5... F1=0.8665, AUC=0.9650
+    Fold 4/5... F1=0.8745, AUC=0.9685
+    Fold 5/5... F1=0.8754, AUC=0.9703
+  [CV RESULTS] F1=0.8740±0.0043, AUC=0.9692±0.0026
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8830, AUC=0.9737
+
+Seed 2/10 (seed=43)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8706, AUC=0.9686
+    Fold 2/5... F1=0.8709, AUC=0.9689
+    Fold 3/5... F1=0.8745, AUC=0.9704
+    Fold 4/5... F1=0.8672, AUC=0.9661
+    Fold 5/5... F1=0.8731, AUC=0.9691
+  [CV RESULTS] F1=0.8713±0.0028, AUC=0.9686±0.0016
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8864, AUC=0.9748
+
+Seed 3/10 (seed=44)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8725, AUC=0.9672
+    Fold 2/5... F1=0.8786, AUC=0.9728
+    Fold 3/5... F1=0.8805, AUC=0.9731
+    Fold 4/5... F1=0.8641, AUC=0.9681
+    Fold 5/5... F1=0.8762, AUC=0.9685
+  [CV RESULTS] F1=0.8744±0.0065, AUC=0.9699±0.0028
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8707, AUC=0.9720
+
+Seed 4/10 (seed=45)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8677, AUC=0.9673
+    Fold 2/5... F1=0.8755, AUC=0.9720
+    Fold 3/5... F1=0.8739, AUC=0.9682
+    Fold 4/5... F1=0.8667, AUC=0.9668
+    Fold 5/5... F1=0.8669, AUC=0.9678
+  [CV RESULTS] F1=0.8701±0.0042, AUC=0.9684±0.0020
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8881, AUC=0.9745
+
+Seed 5/10 (seed=46)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8689, AUC=0.9703
+    Fold 2/5... F1=0.8715, AUC=0.9688
+    Fold 3/5... F1=0.8706, AUC=0.9683
+    Fold 4/5... F1=0.8707, AUC=0.9669
+    Fold 5/5... F1=0.8747, AUC=0.9712
+  [CV RESULTS] F1=0.8713±0.0021, AUC=0.9691±0.0017
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8789, AUC=0.9732
+
+Seed 6/10 (seed=47)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8770, AUC=0.9689
+    Fold 2/5... F1=0.8680, AUC=0.9671
+    Fold 3/5... F1=0.8684, AUC=0.9683
+    Fold 4/5... F1=0.8824, AUC=0.9729
+    Fold 5/5... F1=0.8740, AUC=0.9690
+  [CV RESULTS] F1=0.8740±0.0061, AUC=0.9692±0.0022
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8873, AUC=0.9745
+
+Seed 7/10 (seed=48)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8754, AUC=0.9705
+    Fold 2/5... F1=0.8745, AUC=0.9686
+    Fold 3/5... F1=0.8706, AUC=0.9703
+    Fold 4/5... F1=0.8789, AUC=0.9727
+    Fold 5/5... F1=0.8781, AUC=0.9702
+  [CV RESULTS] F1=0.8755±0.0033, AUC=0.9704±0.0015
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8771, AUC=0.9721
+
+Seed 8/10 (seed=49)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8718, AUC=0.9680
+    Fold 2/5... F1=0.8773, AUC=0.9712
+    Fold 3/5... F1=0.8828, AUC=0.9714
+    Fold 4/5... F1=0.8731, AUC=0.9659
+    Fold 5/5... F1=0.8762, AUC=0.9702
+  [CV RESULTS] F1=0.8762±0.0043, AUC=0.9693±0.0024
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8887, AUC=0.9760
+
+Seed 9/10 (seed=50)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8710, AUC=0.9682
+    Fold 2/5... F1=0.8654, AUC=0.9691
+    Fold 3/5... F1=0.8718, AUC=0.9700
+    Fold 4/5... F1=0.8724, AUC=0.9662
+    Fold 5/5... F1=0.8775, AUC=0.9696
+  [CV RESULTS] F1=0.8716±0.0043, AUC=0.9686±0.0015
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8888, AUC=0.9751
+
+Seed 10/10 (seed=51)...
+  Split: Train=19,949, Test=4,988
+  Starting 5-fold CV on training set...
+    Fold 1/5... F1=0.8706, AUC=0.9680
+    Fold 2/5... F1=0.8721, AUC=0.9690
+    Fold 3/5... F1=0.8771, AUC=0.9711
+    Fold 4/5... F1=0.8781, AUC=0.9710
+    Fold 5/5... F1=0.8781, AUC=0.9707
+  [CV RESULTS] F1=0.8752±0.0036, AUC=0.9700±0.0014
+  Final test evaluation: Train on ALL training set, test on test set... F1=0.8847, AUC=0.9717
+
+================================================================================
+[STEP B] Saving metrics to CSV files...
+================================================================================
+  [OK] Saved per-seed results: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_random_stratified_per_seed.csv
+  [OK] Saved summary: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_random_stratified_mean_std.csv
+  [OK] Saved per-class test results: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_random_stratified_per_class_test.csv
+  [OK] Saved per-class test summary: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_random_stratified_per_class_test_mean_std.csv
+  [OK] Saved test set predictions: /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/xgb_random_stratified_predictions.npz
+       Shape: y_true (10, 4988), y_pred_proba (10, 4988, 3)
+       Test sizes per seed: [4988, 4988, 4988, 4988, 4988, 4988, 4988, 4988, 4988, 4988]
+
+================================================================================
+RESULTS SUMMARY
+================================================================================
+
+5-Fold CV Results (Mean ± Std across seeds):
+  Accuracy:  0.8765 ± 0.0020
+  Precision: 0.8776 ± 0.0022
+  Recall:    0.8697 ± 0.0021
+  F1-score:  0.8734 ± 0.0021
+  Specificity: 0.9318 ± 0.0011
+  AUC:       0.9693 ± 0.0007
+
+Test Set Results (Mean ± Std across seeds):
+  Accuracy:  0.8859 ± 0.0055
+  Precision: 0.8862 ± 0.0056
+  Recall:    0.8810 ± 0.0067
+  F1-score:  0.8834 ± 0.0060
+  Specificity: 0.9373 ± 0.0032
+  AUC:       0.9738 ± 0.0015
+
+================================================================================
+[STEP C] Computing SHAP values (POST-HOC interpretability only)...
+--------------------------------------------------------------------------------
+  Using model from first seed (seed=42)...
+  Computing SHAP values on sample of 500 test samples...
+  [OK] SHAP values saved to /Users/joshmath/Documents/GPCR_rerun_package/ML_code/evaluation_scripts/outputs/shap/xgb_random_stratified_shap_values.npz
+
+================================================================================
+EVALUATION COMPLETE!
+================================================================================
+EXIT 0

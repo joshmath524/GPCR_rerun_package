@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Over GitHub's 100 MB file limit. Not used by the random-stratified stacking script.
+GPCRA17_enriched.csv
+MLcodes/pan_gpcr_results/optuna/cache/tuning_dataset.pkl

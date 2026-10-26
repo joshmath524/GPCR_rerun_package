@@ -24,10 +24,10 @@ warnings.filterwarnings('ignore', message='No further splits with positive gain'
 
 from sklearn.ensemble import RandomForestClassifier, StackingClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split, StratifiedKFold, cross_validate
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score,
-    f1_score, roc_auc_score, confusion_matrix, make_scorer
+    f1_score, roc_auc_score, confusion_matrix
 )
 import lightgbm as lgb
 import xgboost as xgb
@@ -46,11 +46,6 @@ from shared_utilities import (
 
 N_CLASSES = 3
 SEEDS = [42, 43, 44, 45, 46, 47, 48, 49, 50, 51]
-
-# Explicit AUC scorer for multiclass (macro-OVR), matches test-set AUC definition
-auc_scorer = make_scorer(
-    roc_auc_score, needs_proba=True, multi_class="ovr", average="macro"
-)
 
 OUTPUT_DIR = _script_dir / "outputs"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -230,7 +225,7 @@ print("  Base models: Random Forest, XGBoost, LightGBM (trial 76/111/282)")
 print("  Meta-model: Logistic Regression, cv=5 for meta-features")
 
 all_metrics = []
-all_cv_metrics = []  # 5-fold CV on train (mirrors RF script: CV block + test block)
+all_cv_metrics = []  # outer nested CV removed; columns kept so the result files stay the same shape
 all_per_class_metrics = {class_name: [] for class_name in class_names}
 all_predictions = []
 overlap_per_seed = []
@@ -240,10 +235,9 @@ n_train_actual = None
 n_test_actual = None
 
 indices = np.arange(len(X))
-N_FOLDS_CV = 5
 
 for seed_idx, seed in enumerate(SEEDS, 1):
-    print(f"\n  Seed {seed_idx}/10 (seed={seed})...")
+    print(f"\n  Seed {seed_idx}/10 (seed={seed})...", flush=True)
 
     # One random stratified split per seed (10 seeds = 10 different splits)
     train_idx, test_idx = train_test_split(
@@ -272,32 +266,23 @@ for seed_idx, seed in enumerate(SEEDS, 1):
         estimators=base_models,
         final_estimator=meta_model,
         cv=5,
-        n_jobs=-1,
-        verbose=0
+        n_jobs=1,
+        verbose=1
     )
 
-    # 5-fold CV on training portion (mirrors RF script: report CV + test).
-    # Note: Nested CV — outer 5 folds here, and StackingClassifier(cv=5) runs internal CV
-    # for meta-features in each fold, so runtime is heavy but correct.
-    skf = StratifiedKFold(n_splits=N_FOLDS_CV, shuffle=True, random_state=seed)
-    cv_scores = cross_validate(
-        stacking_clf, X_train, y_train, cv=skf,
-        scoring={'accuracy': 'accuracy', 'f1_macro': 'f1_macro', 'auc_ovr': auc_scorer},
-        n_jobs=-1, return_train_score=False
-    )
+    # One fit per seed. cv=5 trains each base model on the training split only.
+    # An outer cross_validate() around this fit was removed: it retrained the whole
+    # stack five more times and printed nothing until that pass finished.
     all_cv_metrics.append({
         'seed': seed,
-        'cv_accuracy_mean': float(np.mean(cv_scores['test_accuracy'])),
-        'cv_accuracy_std': float(np.std(cv_scores['test_accuracy'], ddof=1)),
-        'cv_f1_mean': float(np.mean(cv_scores['test_f1_macro'])),
-        'cv_f1_std': float(np.std(cv_scores['test_f1_macro'], ddof=1)),
-        'cv_auc_mean': float(np.mean(cv_scores['test_auc_ovr'])),
-        'cv_auc_std': float(np.std(cv_scores['test_auc_ovr'], ddof=1)),
+        'cv_accuracy_mean': np.nan,
+        'cv_accuracy_std': np.nan,
+        'cv_f1_mean': np.nan,
+        'cv_f1_std': np.nan,
+        'cv_auc_mean': np.nan,
+        'cv_auc_std': np.nan,
     })
-    # Std here is across the 5 CV folds for this seed; reported "Mean ± Std" later is across seeds
-    print(f"    CV (5-fold on train): F1={all_cv_metrics[-1]['cv_f1_mean']:.4f}±{all_cv_metrics[-1]['cv_f1_std']:.4f}, AUC={all_cv_metrics[-1]['cv_auc_mean']:.4f}±{all_cv_metrics[-1]['cv_auc_std']:.4f}")
-
-    # Final fit on full train, evaluate on test
+    print("    Fitting stack on the training split...", flush=True)
     stacking_clf.fit(X_train, y_train)
     assert np.array_equal(stacking_clf.classes_, np.arange(N_CLASSES)), (
         "stacking_clf.classes_ must match 0..N_CLASSES-1 for proba alignment"
@@ -337,6 +322,7 @@ for seed_idx, seed in enumerate(SEEDS, 1):
         'f1': f1_macro,
         'auc': macro_auc
     })
+    print(f"    Test: F1={f1_macro:.4f}, AUC={macro_auc:.4f}", flush=True)
 
     precision_per_class = precision_score(y_test, y_pred_encoded, labels=range(len(class_names)), average=None, zero_division=0)
     recall_per_class = recall_score(y_test, y_pred_encoded, labels=range(len(class_names)), average=None, zero_division=0)
@@ -421,12 +407,7 @@ print("\n" + "="*80)
 print("STACKING ENSEMBLE RESULTS (10 Seeds)")
 print("="*80)
 
-print(f"\n5-Fold CV on Train (Mean ± Std across seeds):")
-print(f"  Accuracy: {cv_accuracy_mean:.4f} ± {cv_accuracy_std:.4f}")
-print(f"  F1-Score: {cv_f1_mean:.4f} ± {cv_f1_std:.4f}")
-print(f"  AUC:      {cv_auc_mean:.4f} ± {cv_auc_std:.4f}")
-
-print(f"\nTest Set Metrics (Mean ± Std):")
+print("\nTest Set Metrics (Mean ± Std):")
 print(f"  Accuracy: {mean_accuracy:.4f} ± {std_accuracy:.4f}")
 print(f"  Macro Precision: {mean_precision:.4f} ± {std_precision:.4f}")
 print(f"  Macro Recall: {mean_recall:.4f} ± {std_recall:.4f}")

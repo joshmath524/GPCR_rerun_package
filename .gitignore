@@ -6,3 +6,12 @@ __pycache__/
 # Over GitHub's 100 MB file limit. Not used by the random-stratified stacking script.
 GPCRA17_enriched.csv
 MLcodes/pan_gpcr_results/optuna/cache/tuning_dataset.pkl
+
+# Wide duplicate ligand tables (xlsx already tracked); some CSVs exceed GitHub 100MB
+*_NEW.csv
+all_outputs_to_send.zip
+
+# Local Optuna / scaffold run noise
+ML_code/warhead_scaffold_eval/logs/
+ML_code/warhead_scaffold_eval/optuna/logs/
+ML_code/warhead_update_log.txt

@@ -1,0 +1,13 @@
+{
+  "n_rows": 24937,
+  "n_features": 1640,
+  "warhead_features": [
+    "has_covalent_warhead",
+    "WHB_acrylamide",
+    "WHB_michael_acrylate",
+    "WHB_alpha_beta_unsaturated_carbonyl"
+  ],
+  "min_support": 50,
+  "n_with_warhead": 809,
+  "encoding": "exclusive_binary_priority"
+}

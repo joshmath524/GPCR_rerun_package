@@ -3,8 +3,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
 cd "$ROOT"
-export DYLD_LIBRARY_PATH="$ROOT/.venv/lib/python3.13/site-packages/sklearn/.dylibs:${DYLD_LIBRARY_PATH:-}"
-PY="$ROOT/.venv/bin/python"
+PY="${PYTHON:-python}"
 OUT="$ROOT/ML_code/warhead_scaffold_eval/optuna"
 LOG="$OUT/logs"
 mkdir -p "$LOG"

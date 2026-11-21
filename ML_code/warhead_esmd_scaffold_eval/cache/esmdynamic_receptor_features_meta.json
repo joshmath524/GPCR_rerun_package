@@ -1,0 +1,32 @@
+{
+  "n_receptors": 68,
+  "n_features": 18,
+  "temps": [
+    "320K",
+    "348K",
+    "379K",
+    "413K",
+    "450K"
+  ],
+  "source": "/Users/joshmath/Documents/GPCR_rerun_package/ESMDynamic_68_receptors/ESMDynamic_68_out/ESMDynamic_68_out",
+  "feature_columns": [
+    "ESMD_n_pocket",
+    "ESMD_seq_len",
+    "ESMD_global_prob_mean",
+    "ESMD_global_prob_std",
+    "ESMD_global_prob_delta_450_320",
+    "ESMD_pocket_degree_mean",
+    "ESMD_pocket_degree_std",
+    "ESMD_pocket_degree_delta_450_320",
+    "ESMD_pocket_degree_dispersion_mean",
+    "ESMD_pocket_pp_prob_mean",
+    "ESMD_pocket_pp_prob_std",
+    "ESMD_pocket_pp_prob_delta_450_320",
+    "ESMD_global_prob_320K",
+    "ESMD_global_prob_450K",
+    "ESMD_pocket_degree_320K",
+    "ESMD_pocket_degree_450K",
+    "ESMD_pocket_pp_prob_320K",
+    "ESMD_pocket_pp_prob_450K"
+  ]
+}

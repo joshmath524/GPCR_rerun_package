@@ -14,4 +14,14 @@ all_outputs_to_send.zip
 # Local Optuna / scaffold run noise
 ML_code/warhead_scaffold_eval/logs/
 ML_code/warhead_scaffold_eval/optuna/logs/
+ML_code/warhead_esmd_scaffold_eval/logs/
 ML_code/warhead_update_log.txt
+
+# Huge ESMDynamic raw contact-map outputs (~9GB); feature CSV is committed instead
+ESMDynamic_68_receptors/ESMDynamic_68_out/
+
+# Local drop folders / large result dumps (not part of the runnable package)
+tryagain/
+all_outputs_to_send/
+new2/
+manuscript_update/

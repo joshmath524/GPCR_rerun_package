@@ -7,11 +7,14 @@ Warhead + ESMDynamic scaffold (compare to baseline) — 2 steps
   1. pip install -r requirements.txt
   2. python run_warhead_esmd_scaffold.py
 
-Uses Table-2 warhead_* count columns + ESMDynamic pocket/global contact features
-with the same fixed RF/XGB/LightGBM hyperparameters as the baseline scaffold
-(no Optuna retune). Summaries land in:
+Uses Table-2 warhead_* counts + pocket-binned ESMDynamic features + warhead×ESMD
+interactions, with the same fixed RF/XGB/LightGBM hyperparameters as baseline
+scaffold (no Optuna retune). Summaries land in:
 
   ML_code/warhead_esmd_scaffold_eval/*_warhead_esmd_scaffold_mean_std.csv
+
+RF smoke test (~2–5 hours):
+  python run_warhead_esmd_scaffold.py --models rf --skip-shap
 
 Optional:
   python run_warhead_esmd_scaffold.py --models rf

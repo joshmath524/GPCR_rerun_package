@@ -124,11 +124,12 @@ def build_warhead_esmd_dataset():
             merged[name] = merged[lig] * merged[rec]
             interaction_cols.append(name)
 
-    # Warhead load / presence helpers from counts
+    # Warhead load / presence helpers from counts (concat once to avoid fragmentation)
     warhead_count_cols = [c for c in ligand_cols if str(c).startswith("warhead_")]
     derived_wh: list[str] = []
+    extra_blocks: list[pd.DataFrame] = []
     if warhead_count_cols:
-        merged["warhead_total_count"] = merged[warhead_count_cols].sum(axis=1)
+        derived = {"warhead_total_count": merged[warhead_count_cols].sum(axis=1)}
         derived_wh.append("warhead_total_count")
         for motif in [
             "warhead_acrylamide",
@@ -142,15 +143,15 @@ def build_warhead_esmd_dataset():
         ]:
             if motif in merged.columns:
                 present = f"{motif}_present"
-                merged[present] = (merged[motif] > 0).astype(float)
+                derived[present] = (merged[motif] > 0).astype(float)
                 derived_wh.append(present)
+        extra_blocks.append(pd.DataFrame(derived, index=merged.index))
 
     # Warhead × pocket nucleophile / ESMD pocket-binned dynamics
     warhead_sides = []
     if "has_covalent_warhead" in merged.columns:
         warhead_sides.append(("has_covalent_warhead", "hasWH"))
-    if "warhead_total_count" in merged.columns:
-        warhead_sides.append(("warhead_total_count", "whLoad"))
+    warhead_sides.append(("warhead_total_count", "whLoad"))
     for motif in [
         "warhead_acrylamide",
         "warhead_vinyl_sulfone",
@@ -177,12 +178,21 @@ def build_warhead_esmd_dataset():
         ("ESMD_global_prob_mean", "esmd_global"),
     ]
 
+    # Temporarily attach derived cols for interaction math
+    if extra_blocks:
+        merged = pd.concat([merged] + extra_blocks, axis=1)
+
+    int_data = {}
     for wcol, wtag in warhead_sides:
+        if wcol not in merged.columns:
+            continue
         for rcol, rtag in esmd_sides:
-            if wcol in merged.columns and rcol in merged.columns:
+            if rcol in merged.columns:
                 name = f"INT_{wtag}_X_{rtag}"
-                merged[name] = merged[wcol] * merged[rcol]
+                int_data[name] = merged[wcol] * merged[rcol]
                 interaction_cols.append(name)
+    if int_data:
+        merged = pd.concat([merged, pd.DataFrame(int_data, index=merged.index)], axis=1)
 
     if "SMILES" not in merged.columns:
         raise ValueError("SMILES column required")

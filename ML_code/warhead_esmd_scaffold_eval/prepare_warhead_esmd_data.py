@@ -70,10 +70,20 @@ def build_warhead_esmd_dataset():
 
     data_df = pd.read_parquet(pq)
     ligand_cols = json.loads(cols_path.read_text())
-    n_wh = sum(1 for c in ligand_cols if str(c).startswith("WHB_") or c == "has_covalent_warhead")
-    print(f"[DATA] Warhead cache {data_df.shape}; ligand cols={len(ligand_cols)} (warhead≈{n_wh})", flush=True)
+    n_wh_counts = sum(1 for c in ligand_cols if str(c).startswith("warhead_"))
+    n_wh = n_wh_counts + (1 if "has_covalent_warhead" in ligand_cols else 0)
+    print(
+        f"[DATA] Warhead cache {data_df.shape}; ligand cols={len(ligand_cols)} "
+        f"(warhead_counts={n_wh_counts})",
+        flush=True,
+    )
+    if n_wh_counts < 10:
+        raise RuntimeError(
+            f"Expected Table-2 warhead_* count columns, found {n_wh_counts}. "
+            "Run ML_code/warhead_scaffold_eval/rebuild_warhead_counts_cache.py"
+        )
     if "has_covalent_warhead" not in ligand_cols:
-        raise RuntimeError("Warhead cache missing has_covalent_warhead — rebuild curated cache")
+        raise RuntimeError("Warhead cache missing has_covalent_warhead — rebuild counts cache")
 
     print("[DATA] Aggregating pocket receptor features (+ Cys)...", flush=True)
     receptor_feats = {}

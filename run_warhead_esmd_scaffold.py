@@ -6,9 +6,9 @@ After:  pip install -r requirements.txt
 Run:    python run_warhead_esmd_scaffold.py
 
 Requires:
-  - ML_code/warhead_scaffold_eval/cache/ligand_features.parquet  (curated warheads)
-  - ESMDynamic outputs OR precomputed
-    ML_code/warhead_esmd_scaffold_eval/cache/esmdynamic_receptor_features.csv
+  - ML_code/warhead_scaffold_eval/cache/ligand_features.parquet
+    (Table-2 warhead_* counts; rebuild with rebuild_warhead_counts_cache.py if needed)
+  - ESMDynamic receptor features CSV (precomputed) or raw ESMDynamic outputs
 """
 
 from __future__ import annotations
@@ -73,6 +73,20 @@ def main() -> None:
     args = parser.parse_args()
 
     _maybe_fix_mac_openmp()
+
+    warhead_cache = ROOT / "ML_code" / "warhead_scaffold_eval" / "cache" / "ligand_features.parquet"
+    cols_path = ROOT / "ML_code" / "warhead_scaffold_eval" / "cache" / "feature_columns.json"
+    need_counts = True
+    if cols_path.exists():
+        import json
+
+        cols = json.loads(cols_path.read_text())
+        need_counts = sum(1 for c in cols if str(c).startswith("warhead_")) < 10
+    if (not warhead_cache.exists()) or need_counts:
+        run_step(
+            "rebuild_warhead_counts",
+            ROOT / "ML_code" / "warhead_scaffold_eval" / "rebuild_warhead_counts_cache.py",
+        )
 
     if args.rebuild_esmd_features or not FEATURE_CSV.exists():
         run_step("build_esmd_features", ESMD / "build_esmdynamic_receptor_features.py")

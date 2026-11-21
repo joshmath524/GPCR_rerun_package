@@ -2,7 +2,7 @@
 
 Combines:
 
-1. Curated warhead ligand features (`../warhead_scaffold_eval/cache/`)
+1. Table-2 `warhead_*` count columns (`../warhead_scaffold_eval/cache/`)
 2. Pocket + interaction receptor features
 3. ESMDynamic dynamic-contact receptor features (`cache/esmdynamic_receptor_features.csv`)
 

@@ -124,18 +124,64 @@ def build_warhead_esmd_dataset():
             merged[name] = merged[lig] * merged[rec]
             interaction_cols.append(name)
 
-    if "has_covalent_warhead" in merged.columns:
-        for rec_col, tag in [
-            ("has_pocket_cys", "pocket_cys"),
-            ("num_cys", "num_cys"),
-            ("num_sulfur", "num_sulfur"),
-            ("ESMD_pocket_degree_mean", "esmd_pocket_degree"),
-            ("ESMD_pocket_pp_prob_mean", "esmd_pocket_pp"),
-            ("ESMD_global_prob_mean", "esmd_global"),
+    # Warhead load / presence helpers from counts
+    warhead_count_cols = [c for c in ligand_cols if str(c).startswith("warhead_")]
+    derived_wh: list[str] = []
+    if warhead_count_cols:
+        merged["warhead_total_count"] = merged[warhead_count_cols].sum(axis=1)
+        derived_wh.append("warhead_total_count")
+        for motif in [
+            "warhead_acrylamide",
+            "warhead_vinyl_sulfone",
+            "warhead_vinyl_sulfonamide",
+            "warhead_chloroacetamide",
+            "warhead_bromoacetamide",
+            "warhead_iodoacetamide",
+            "warhead_maleimide",
+            "warhead_epoxide",
         ]:
-            if rec_col in merged.columns:
-                name = f"INT_has_covalent_warhead_X_{tag}"
-                merged[name] = merged["has_covalent_warhead"] * merged[rec_col]
+            if motif in merged.columns:
+                present = f"{motif}_present"
+                merged[present] = (merged[motif] > 0).astype(float)
+                derived_wh.append(present)
+
+    # Warhead × pocket nucleophile / ESMD pocket-binned dynamics
+    warhead_sides = []
+    if "has_covalent_warhead" in merged.columns:
+        warhead_sides.append(("has_covalent_warhead", "hasWH"))
+    if "warhead_total_count" in merged.columns:
+        warhead_sides.append(("warhead_total_count", "whLoad"))
+    for motif in [
+        "warhead_acrylamide",
+        "warhead_vinyl_sulfone",
+        "warhead_chloroacetamide",
+        "warhead_maleimide",
+    ]:
+        if motif in merged.columns:
+            warhead_sides.append((motif, motif.replace("warhead_", "wh_")))
+
+    esmd_sides = [
+        ("has_pocket_cys", "pocket_cys"),
+        ("num_cys", "num_cys"),
+        ("num_sulfur", "num_sulfur"),
+        ("ESMD_pocket_degree_mean", "esmd_pocket_degree"),
+        ("ESMD_pocket_pp_prob_mean", "esmd_pocket_pp"),
+        ("ESMD_pocket_degree_delta_450_320", "esmd_pocket_deg_delta"),
+        ("ESMD_shell_first_degree_mean_mean", "esmd_shell1_deg"),
+        ("ESMD_shell_second_degree_mean_mean", "esmd_shell2_deg"),
+        ("ESMD_region_TM_degree_mean_mean", "esmd_TM_deg"),
+        ("ESMD_region_ECL_degree_mean_mean", "esmd_ECL_deg"),
+        ("ESMD_sulfur_degree_mean_mean", "esmd_sulfur_deg"),
+        ("ESMD_cys_degree_mean_mean", "esmd_cys_deg"),
+        ("ESMD_shell_first_pp_mean_mean", "esmd_shell1_pp"),
+        ("ESMD_global_prob_mean", "esmd_global"),
+    ]
+
+    for wcol, wtag in warhead_sides:
+        for rcol, rtag in esmd_sides:
+            if wcol in merged.columns and rcol in merged.columns:
+                name = f"INT_{wtag}_X_{rtag}"
+                merged[name] = merged[wcol] * merged[rcol]
                 interaction_cols.append(name)
 
     if "SMILES" not in merged.columns:
@@ -150,13 +196,18 @@ def build_warhead_esmd_dataset():
         print(f"  [WARNING] Dropping {(~valid).sum()} invalid SMILES rows", flush=True)
         merged = merged[valid].reset_index(drop=True)
 
+    # refresh esmd cols after merge (includes newly built binned features)
+    esmd_cols = [c for c in merged.columns if str(c).startswith("ESMD_")]
     feature_cols = (
         list(ligand_cols)
         + list(receptor_df.columns)
         + list(esmd_cols)
+        + list(derived_wh)
         + interaction_cols
     )
-    feature_cols = [c for c in feature_cols if c in merged.columns]
+    # unique preserve order
+    seen = set()
+    feature_cols = [c for c in feature_cols if c in merged.columns and not (c in seen or seen.add(c))]
     X = (
         merged[feature_cols]
         .apply(pd.to_numeric, errors="coerce")
